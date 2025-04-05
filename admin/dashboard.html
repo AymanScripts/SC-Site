@@ -6,12 +6,6 @@
     <title>Admin Dashboard - Vanilla Unicorn</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Voeg Firebase scripts toe -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="../js/firebase.js"></script>
-    <!-- Voeg GitHub script toe -->
-    <script src="../js/github.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -83,51 +77,48 @@
             window.location.href = 'login.html';
         });
 
-        // Functie om inquiries te laden
-        async function loadInquiries() {
-            try {
-                const inquiries = await loadInquiries();
-                const inquiriesTable = document.getElementById('inquiriesTable');
-                inquiriesTable.innerHTML = '';
-
-                inquiries.forEach((inquiry, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td class="px-6 py-4 whitespace-nowrap">${inquiry.name}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">${inquiry.phone}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">${inquiry.subject}</td>
-                        <td class="px-6 py-4">${inquiry.message}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">${new Date(inquiry.date).toLocaleString()}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <button onclick="deleteInquiry(${index})" class="text-red-600 hover:text-red-900">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                    `;
-                    inquiriesTable.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error loading inquiries:', error);
-            }
+        // Function to load inquiries from localStorage
+        function loadInquiries() {
+            return JSON.parse(localStorage.getItem('inquiries') || '[]');
         }
 
-        // Functie om een inquiry te verwijderen
-        async function deleteInquiry(index) {
-            try {
-                const inquiries = await loadInquiries();
+        // Function to save inquiries to localStorage
+        function saveInquiries(inquiries) {
+            localStorage.setItem('inquiries', JSON.stringify(inquiries));
+        }
+
+        // Function to render inquiries
+        function renderInquiries() {
+            const inquiries = loadInquiries();
+            const inquiriesTable = document.getElementById('inquiriesTable');
+            inquiriesTable.innerHTML = inquiries.map((inquiry, index) => `
+                <tr class="border-b border-gray-700">
+                    <td class="px-6 py-4">${inquiry.name}</td>
+                    <td class="px-6 py-4">${inquiry.phone}</td>
+                    <td class="px-6 py-4">${inquiry.subject}</td>
+                    <td class="px-6 py-4">${inquiry.message}</td>
+                    <td class="px-6 py-4">${new Date(inquiry.date).toLocaleString()}</td>
+                    <td class="px-6 py-4">
+                        <button onclick="deleteInquiry(${index})" class="text-red-500 hover:text-red-400">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Function to delete inquiry
+        window.deleteInquiry = function(index) {
+            if (confirm('Are you sure you want to delete this inquiry?')) {
+                const inquiries = loadInquiries();
                 inquiries.splice(index, 1);
-                await saveInquiries(inquiries);
-                loadInquiries(); // Herlaad de tabel
-            } catch (error) {
-                console.error('Error deleting inquiry:', error);
+                saveInquiries(inquiries);
+                renderInquiries();
             }
-        }
+        };
 
-        // Laad inquiries bij het laden van de pagina
-        loadInquiries();
-
-        // Auto-refresh elke 5 seconden
-        setInterval(loadInquiries, 5000);
+        // Initial render
+        renderInquiries();
     </script>
 </body>
 </html> 
