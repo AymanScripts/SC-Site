@@ -209,7 +209,7 @@
 
     <script>
         // Load navigation
-        fetch('../components/navbar.html')
+        fetch('https://aymanscripts.github.io/SC-Site/components/navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar').innerHTML = data;
@@ -222,6 +222,10 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             
+            // Get all checked availability days
+            const availability = Array.from(document.querySelectorAll('input[name="availability[]"]:checked'))
+                .map(checkbox => checkbox.value);
+            
             // Format the message for Discord
             const message = {
                 content: `**Nieuwe DJ Sollicitatie**\n\n` +
@@ -232,7 +236,7 @@
                         `**Genres:** ${data.genres}\n` +
                         `**Portfolio:** ${data.portfolio}\n` +
                         `**Motivatie:**\n${data.motivation}\n` +
-                        `**Beschikbaarheid:** ${data['availability[]'].join(', ')}\n` +
+                        `**Beschikbaarheid:** ${availability.join(', ')}\n` +
                         `**Datum:** ${new Date().toLocaleString('nl-NL')}`
             };
 
