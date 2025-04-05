@@ -11,7 +11,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg') center/cover fixed;
         }
         
         .gradient-text {
@@ -34,172 +34,88 @@
             text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
         }
 
-        .job-card {
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
             transition: all 0.3s ease;
         }
 
-        .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        .dropdown-content a:hover {
+            background-color: rgba(255, 107, 107, 0.2);
         }
     </style>
 </head>
 <body class="text-white">
-    <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
-                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
-                    <div class="relative group">
-                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
-                        <div class="absolute hidden group-hover:block w-48 bg-black/90 rounded-lg shadow-lg py-2 mt-2">
-                            <a href="contact.html" class="block px-4 py-2 hover:bg-pink-500/20">Contact</a>
-                            <a href="work.html" class="block px-4 py-2 hover:bg-pink-500/20">Werk Bij Ons</a>
-                            <a href="reservation.html" class="block px-4 py-2 hover:bg-pink-500/20">Reserveren</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- Include Navigation -->
+    <div id="navbar"></div>
 
     <!-- Work Section -->
     <section class="pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Werk Bij Ons</h1>
+            <h1 class="text-5xl font-bold mb-12 text-center gradient-text hover-glow">Werk Bij Ons</h1>
             
-            <div class="max-w-3xl mx-auto mb-16 glass-effect p-8 rounded-xl">
-                <h2 class="text-3xl font-bold mb-6 text-pink-500">Waarom bij ons werken?</h2>
-                <p class="text-gray-300 mb-6">Bij Vanilla Unicorn bieden we een unieke werkomgeving met uitstekende arbeidsvoorwaarden en groeimogelijkheden. We zijn op zoek naar gepassioneerde professionals die deel willen uitmaken van ons exclusieve team.</p>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                        <span>Competitief salaris en bonussen</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                        <span>Flexibele werktijden</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                        <span>Professionele training en ontwikkeling</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                        <span>Uitstekende werksfeer</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Bartender -->
-                <div class="job-card glass-effect p-8 rounded-xl">
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Bartender Card -->
+                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-cocktail"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Bartender</h3>
-                    <p class="text-gray-300 mb-6">We zoeken ervaren bartenders die uitblinken in het maken van cocktails en het verzorgen van gasten.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Minimaal 2 jaar ervaring</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Kennis van cocktails en premium drankjes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Uitstekende sociale vaardigheden</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                    <h2 class="text-2xl font-bold mb-4">Bartender</h2>
+                    <p class="text-gray-300 mb-6">Word onderdeel van ons professionele bar team en serveer de beste cocktails in de stad.</p>
+                    <a href="jobs/bartender.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
                         Solliciteer Nu
                     </a>
                 </div>
 
-                <!-- Security -->
-                <div class="job-card glass-effect p-8 rounded-xl">
+                <!-- Security Card -->
+                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Security</h3>
-                    <p class="text-gray-300 mb-6">We zoeken professionele security medewerkers die kunnen zorgen voor een veilige en prettige sfeer.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Relevante ervaring vereist</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Goede communicatieve vaardigheden</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Stressbestendig en alert</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                    <h2 class="text-2xl font-bold mb-4">Security</h2>
+                    <p class="text-gray-300 mb-6">Zorg voor de veiligheid van onze gasten en medewerkers in een dynamische omgeving.</p>
+                    <a href="jobs/security.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
                         Solliciteer Nu
                     </a>
                 </div>
 
-                <!-- Host/Hostess -->
-                <div class="job-card glass-effect p-8 rounded-xl">
+                <!-- Host/Hostess Card -->
+                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Host/Hostess</h3>
-                    <p class="text-gray-300 mb-6">We zoeken vriendelijke en professionele hosts/hostesses die onze gasten een warm welkom kunnen bieden.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Uitstekende sociale vaardigheden</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Organisatorisch talent</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Flexibele beschikbaarheid</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                    <h2 class="text-2xl font-bold mb-4">Host/Hostess</h2>
+                    <p class="text-gray-300 mb-6">Verwelkom onze gasten en zorg voor een onvergetelijke ervaring vanaf het eerste moment.</p>
+                    <a href="jobs/host.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
                         Solliciteer Nu
                     </a>
                 </div>
 
-                <!-- DJ -->
-                <div class="job-card glass-effect p-8 rounded-xl">
+                <!-- DJ Card -->
+                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">DJ</h3>
-                    <p class="text-gray-300 mb-6">We zoeken getalenteerde DJ's die onze gasten kunnen entertainen met de beste muziek.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Ervaring in nachtclubs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Breed muziekrepertoire</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Eigen apparatuur</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                    <h2 class="text-2xl font-bold mb-4">DJ</h2>
+                    <p class="text-gray-300 mb-6">Laat de dansvloer branden met jouw muziek en creëer de perfecte sfeer.</p>
+                    <a href="jobs/dj.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
                         Solliciteer Nu
                     </a>
                 </div>
@@ -224,5 +140,14 @@
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
+
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
 </body>
 </html> 
