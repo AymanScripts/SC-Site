@@ -7,19 +7,92 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="components/styles.css">
+    <style>
+        .glitter-bg {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .glitter-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glitter 2s infinite;
+        }
+        @keyframes glitter {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            transform: scale(1.05);
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+        .gallery-item img {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-pink-50 to-white min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20 backdrop-blur-lg">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
                     <div class="dropdown relative">
-                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
                         <div class="dropdown-content">
                             <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
                             <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
@@ -38,56 +111,58 @@
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        <div class="absolute inset-0 glitter-bg opacity-10"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-7xl font-bold mb-6 gradient-text hover-glow">Galerij</h1>
+            <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Galerij</h1>
             <p class="text-2xl mb-12 text-gray-300">Bekijk de exclusieve sfeer van Vanilla Unicorn</p>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 glitter-bg opacity-5"></div>
+        <div class="container mx-auto px-4 relative">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/1.jpg" alt="Vanilla Unicorn Interior" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">Interieur</h3>
-                        <p class="text-sm">Exclusieve VIP ruimtes</p>
+                        <h3 class="text-xl font-bold glitter-text">Interieur</h3>
+                        <p class="text-sm text-white">Exclusieve VIP ruimtes</p>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/2.jpg" alt="Vanilla Unicorn Bar" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">Bar</h3>
-                        <p class="text-sm">Premium drankjes</p>
+                        <h3 class="text-xl font-bold glitter-text">Bar</h3>
+                        <p class="text-sm text-white">Premium drankjes</p>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/3.jpg" alt="Vanilla Unicorn Stage" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">Podium</h3>
-                        <p class="text-sm">Professionele shows</p>
+                        <h3 class="text-xl font-bold glitter-text">Podium</h3>
+                        <p class="text-sm text-white">Professionele shows</p>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/4.jpg" alt="Vanilla Unicorn VIP" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">VIP Lounge</h3>
-                        <p class="text-sm">Privé ruimtes</p>
+                        <h3 class="text-xl font-bold glitter-text">VIP Lounge</h3>
+                        <p class="text-sm text-white">Privé ruimtes</p>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/5.jpg" alt="Vanilla Unicorn DJ" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">DJ Booth</h3>
-                        <p class="text-sm">Top DJ's</p>
+                        <h3 class="text-xl font-bold glitter-text">DJ Booth</h3>
+                        <p class="text-sm text-white">Top DJ's</p>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
                     <img src="assets/gallery/6.jpg" alt="Vanilla Unicorn Entrance" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold">Entree</h3>
-                        <p class="text-sm">Exclusieve toegang</p>
+                        <h3 class="text-xl font-bold glitter-text">Entree</h3>
+                        <p class="text-sm text-white">Exclusieve toegang</p>
                     </div>
                 </div>
             </div>
@@ -95,17 +170,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12">
+    <footer class="py-12 bg-gradient-to-b from-white to-pink-50">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
-                    <i class="fab fa-discord text-3xl"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-instagram text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-tiktok text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
