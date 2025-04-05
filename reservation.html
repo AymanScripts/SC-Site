@@ -6,92 +6,24 @@
     <title>Vanilla Unicorn - Reserveren</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 107, 107, 0.2);
-        }
-
-        .reservation-card {
-            transition: all 0.3s ease;
-        }
-
-        .reservation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.5);
-        }
-    </style>
+    <link rel="stylesheet" href="components/styles.css">
 </head>
-<body class="text-white">
+<body>
     <!-- Navigation -->
     <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
-                    <div class="relative group">
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="dropdown relative">
                         <button class="hover:text-pink-500 transition duration-300">Contact</button>
-                        <div class="absolute hidden group-hover:block w-48 bg-black/90 rounded-lg shadow-lg py-2 mt-2">
-                            <a href="contact.html" class="block px-4 py-2 hover:bg-pink-500/20">Contact</a>
-                            <a href="work.html" class="block px-4 py-2 hover:bg-pink-500/20">Werk Bij Ons</a>
-                            <a href="reservation.html" class="block px-4 py-2 hover:bg-pink-500/20">Reserveren</a>
+                        <div class="dropdown-content">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -103,99 +35,63 @@
     </nav>
 
     <!-- Reservation Section -->
-    <section class="pt-32 pb-20">
+    <section class="min-h-screen pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Reserveren</h1>
-            
-            <div class="max-w-3xl mx-auto">
-                <div class="glass-effect p-8 rounded-xl mb-8">
-                    <h2 class="text-3xl font-bold mb-6 text-pink-500">Reserveringsinformatie</h2>
-                    <p class="text-gray-300 mb-6">Maak een reservering voor een onvergetelijke avond bij Vanilla Unicorn. Vul het onderstaande formulier in en we nemen zo spoedig mogelijk contact met u op.</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
-                            <span>Reserveringen dienen minimaal 24 uur van tevoren te worden gemaakt</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
-                            <span>Voor VIP reserveringen gelden speciale voorwaarden</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
-                            <span>Groepsreserveringen zijn mogelijk vanaf 6 personen</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <form class="glass-effect p-8 rounded-xl reservation-card" id="reservationForm">
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block text-gray-300 mb-2">Naam</label>
-                            <input type="text" name="name" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+            <h1 class="text-5xl font-bold mb-12 text-center gradient-text">Reserveren</h1>
+            <div class="max-w-2xl mx-auto">
+                <form id="reservationForm" class="card p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="name" class="block mb-2">Naam</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block text-gray-300 mb-2">Telefoonnummer</label>
-                            <input type="tel" name="phone" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                        <div class="form-group">
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block text-gray-300 mb-2">Datum</label>
-                            <input type="date" name="date" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                        <div class="form-group">
+                            <label for="phone" class="block mb-2">Telefoon</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block text-gray-300 mb-2">Aantal Personen</label>
-                            <select name="persons" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
-                                <option value="">Selecteer aantal</option>
-                                <option value="1-2">1-2 personen</option>
-                                <option value="3-5">3-5 personen</option>
-                                <option value="6-10">6-10 personen</option>
-                                <option value="10+">10+ personen</option>
+                        <div class="form-group">
+                            <label for="date" class="block mb-2">Datum</label>
+                            <input type="date" id="date" name="date" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="persons" class="block mb-2">Aantal Personen</label>
+                            <input type="number" id="persons" name="persons" min="1" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="block mb-2">Type Reservering</label>
+                            <select id="type" name="type" class="form-input" required>
+                                <option value="regular">Regulier</option>
+                                <option value="vip">VIP</option>
+                                <option value="private">Privé Event</option>
                             </select>
                         </div>
                     </div>
-
-                    <div class="mb-6">
-                        <label class="block text-gray-300 mb-2">Reserveringstype</label>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <label class="flex items-center space-x-3">
-                                <input type="radio" name="type" value="regular" class="text-pink-500" checked>
-                                <span>Regulier</span>
-                            </label>
-                            <label class="flex items-center space-x-3">
-                                <input type="radio" name="type" value="vip" class="text-pink-500">
-                                <span>VIP</span>
-                            </label>
-                            <label class="flex items-center space-x-3">
-                                <input type="radio" name="type" value="private" class="text-pink-500">
-                                <span>Privé Evenement</span>
-                            </label>
-                        </div>
+                    <div class="form-group mt-6">
+                        <label for="requests" class="block mb-2">Speciale Wensen</label>
+                        <textarea id="requests" name="requests" rows="4" class="form-input"></textarea>
                     </div>
-
-                    <div class="mb-6">
-                        <label class="block text-gray-300 mb-2">Speciale Wensen</label>
-                        <textarea name="requests" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
-                        Reservering Versturen
-                    </button>
+                    <button type="submit" class="btn-primary w-full mt-8">Reserveer Nu</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-discord"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                    <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
@@ -203,51 +99,55 @@
     </footer>
 
     <script>
-        // Load navigation
-        fetch('components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
-
-        // Form submission
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        document.getElementById('reservationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Format the message for Discord
-            const message = {
-                content: `**Nieuwe Reservering**\n\n` +
-                        `**Naam:** ${data.name}\n` +
-                        `**Telefoon:** ${data.phone}\n` +
-                        `**Datum:** ${data.date}\n` +
-                        `**Aantal Personen:** ${data.persons}\n` +
-                        `**Reservering Type:** ${data.type}\n` +
-                        `**Speciale Wensen:**\n${data.requests}\n` +
-                        `**Datum Aanvraag:** ${new Date().toLocaleString('nl-NL')}`
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                persons: document.getElementById('persons').value,
+                type: document.getElementById('type').value,
+                requests: document.getElementById('requests').value
             };
 
-            // Send to Discord webhook
-            fetch('https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(message)
-            })
-            .then(response => {
+            const message = {
+                embeds: [{
+                    title: "Nieuwe Reservering",
+                    color: 0xFF6B6B,
+                    fields: [
+                        { name: "Naam", value: formData.name },
+                        { name: "Email", value: formData.email },
+                        { name: "Telefoon", value: formData.phone },
+                        { name: "Datum", value: formData.date },
+                        { name: "Aantal Personen", value: formData.persons },
+                        { name: "Type", value: formData.type },
+                        { name: "Speciale Wensen", value: formData.requests || "Geen" }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                const response = await fetch('YOUR_DISCORD_WEBHOOK_URL', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+
                 if (response.ok) {
-                    alert('Bedankt voor je reservering! We nemen zo snel mogelijk contact met je op.');
-                    this.reset();
+                    alert('Reservering succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
+                    document.getElementById('reservationForm').reset();
                 } else {
-                    throw new Error('Er is iets misgegaan. Probeer het later opnieuw.');
+                    throw new Error('Er is een fout opgetreden bij het verzenden van de reservering.');
                 }
-            })
-            .catch(error => {
-                alert(error.message);
-            });
+            } catch (error) {
+                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                console.error('Error:', error);
+            }
         });
     </script>
 </body>

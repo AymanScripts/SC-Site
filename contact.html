@@ -3,148 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Vanilla Unicorn</title>
+    <title>Vanilla Unicorn - Contact</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg') center/cover fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 107, 107, 0.2);
-        }
-
-        .form-input {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="components/styles.css">
 </head>
-<body class="text-white">
-    <!-- Include Navigation -->
-    <div id="navbar"></div>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="dropdown relative">
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <div class="dropdown-content">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Contact Section -->
-    <section class="pt-32 pb-20">
+    <section class="min-h-screen pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <h1 class="text-5xl font-bold mb-8 text-center gradient-text hover-glow">Contact</h1>
-                
-                <div class="glass-effect p-8 rounded-xl mb-8">
-                    <h2 class="text-2xl font-bold mb-4">Neem Contact Op</h2>
-                    <p class="text-gray-300 mb-6">Heb je een vraag of opmerking? Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op.</p>
-                </div>
-
-                <form id="contactForm" class="glass-effect p-8 rounded-xl">
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block mb-2">Voornaam</label>
-                            <input type="text" name="firstName" required class="form-input w-full">
+            <h1 class="text-5xl font-bold mb-12 text-center gradient-text">Contact</h1>
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="card p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="firstName" class="block mb-2">Voornaam</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block mb-2">Achternaam</label>
-                            <input type="text" name="lastName" required class="form-input w-full">
+                        <div class="form-group">
+                            <label for="lastName" class="block mb-2">Achternaam</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
                         </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block mb-2">E-mail</label>
-                            <input type="email" name="email" required class="form-input w-full">
+                        <div class="form-group">
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block mb-2">Telefoonnummer</label>
-                            <input type="tel" name="phone" class="form-input w-full">
+                        <div class="form-group">
+                            <label for="phone" class="block mb-2">Telefoon</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
                         </div>
                     </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Onderwerp</label>
-                        <input type="text" name="subject" required class="form-input w-full">
+                    <div class="form-group mt-6">
+                        <label for="subject" class="block mb-2">Onderwerp</label>
+                        <select id="subject" name="subject" class="form-input" required>
+                            <option value="general">Algemene Vraag</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="complaint">Klacht</option>
+                            <option value="other">Anders</option>
+                        </select>
                     </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Bericht</label>
-                        <textarea name="message" rows="4" required class="form-input w-full"></textarea>
+                    <div class="form-group mt-6">
+                        <label for="message" class="block mb-2">Bericht</label>
+                        <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
                     </div>
-
-                    <button type="submit" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-pink-500/30">
-                        Verstuur Bericht
-                    </button>
+                    <button type="submit" class="btn-primary w-full mt-8">Verstuur Bericht</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-discord"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                    <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
@@ -152,50 +96,52 @@
     </footer>
 
     <script>
-        // Load navigation
-        fetch('components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Format the message for Discord
-            const message = {
-                content: `**Nieuw Contactformulier**\n\n` +
-                        `**Naam:** ${data.firstName} ${data.lastName}\n` +
-                        `**E-mail:** ${data.email}\n` +
-                        `**Telefoon:** ${data.phone}\n` +
-                        `**Onderwerp:** ${data.subject}\n` +
-                        `**Bericht:**\n${data.message}\n` +
-                        `**Datum:** ${new Date().toLocaleString('nl-NL')}`
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
             };
 
-            // Send to Discord webhook
-            fetch('YOUR_CONTACT_WEBHOOK_URL', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(message)
-            })
-            .then(response => {
+            const message = {
+                embeds: [{
+                    title: "Nieuw Contactbericht",
+                    color: 0xFF6B6B,
+                    fields: [
+                        { name: "Naam", value: `${formData.firstName} ${formData.lastName}` },
+                        { name: "Email", value: formData.email },
+                        { name: "Telefoon", value: formData.phone },
+                        { name: "Onderwerp", value: formData.subject },
+                        { name: "Bericht", value: formData.message }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                const response = await fetch('YOUR_DISCORD_WEBHOOK_URL', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+
                 if (response.ok) {
-                    alert('Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.');
-                    this.reset();
+                    alert('Bericht succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
+                    document.getElementById('contactForm').reset();
                 } else {
-                    throw new Error('Er is iets misgegaan. Probeer het later opnieuw.');
+                    throw new Error('Er is een fout opgetreden bij het verzenden van het bericht.');
                 }
-            })
-            .catch(error => {
-                alert(error.message);
-            });
+            } catch (error) {
+                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                console.error('Error:', error);
+            }
         });
     </script>
 </body>

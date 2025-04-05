@@ -3,151 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Werk Bij Ons - Vanilla Unicorn</title>
+    <title>Vanilla Unicorn - Werk Bij Ons</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg') center/cover fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 107, 107, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="components/styles.css">
 </head>
-<body class="text-white">
-    <!-- Include Navigation -->
-    <div id="navbar"></div>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="dropdown relative">
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <div class="dropdown-content">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Work Section -->
-    <section class="pt-32 pb-20">
+    <section class="min-h-screen pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-12 text-center gradient-text hover-glow">Werk Bij Ons</h1>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Bartender Card -->
-                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
+            <h1 class="text-5xl font-bold mb-12 text-center gradient-text">Werk Bij Ons</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-cocktail"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4">Bartender</h2>
+                    <h3 class="text-2xl font-bold mb-4">Bartender</h3>
                     <p class="text-gray-300 mb-6">Word onderdeel van ons professionele bar team en serveer de beste cocktails in de stad.</p>
-                    <a href="jobs/bartender.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
-                        Solliciteer Nu
-                    </a>
+                    <a href="jobs/bartender.html" class="btn-primary">Solliciteer Nu</a>
                 </div>
-
-                <!-- Security Card -->
-                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4">Security</h2>
-                    <p class="text-gray-300 mb-6">Zorg voor de veiligheid van onze gasten en medewerkers in een dynamische omgeving.</p>
-                    <a href="jobs/security.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
-                        Solliciteer Nu
-                    </a>
+                    <h3 class="text-2xl font-bold mb-4">Security</h3>
+                    <p class="text-gray-300 mb-6">Help ons een veilige en plezierige omgeving te creëren voor al onze gasten.</p>
+                    <a href="jobs/security.html" class="btn-primary">Solliciteer Nu</a>
                 </div>
-
-                <!-- Host/Hostess Card -->
-                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4">Host/Hostess</h2>
-                    <p class="text-gray-300 mb-6">Verwelkom onze gasten en zorg voor een onvergetelijke ervaring vanaf het eerste moment.</p>
-                    <a href="jobs/host.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
-                        Solliciteer Nu
-                    </a>
+                    <h3 class="text-2xl font-bold mb-4">Host/Hostess</h3>
+                    <p class="text-gray-300 mb-6">Verwelkom gasten en zorg voor een onvergetelijke ervaring bij Vanilla Unicorn.</p>
+                    <a href="jobs/host.html" class="btn-primary">Solliciteer Nu</a>
                 </div>
-
-                <!-- DJ Card -->
-                <div class="glass-effect p-8 rounded-xl hover:scale-105 transition duration-300">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-4">DJ</h2>
-                    <p class="text-gray-300 mb-6">Laat de dansvloer branden met jouw muziek en creëer de perfecte sfeer.</p>
-                    <a href="jobs/dj.html" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-full transition duration-300">
-                        Solliciteer Nu
-                    </a>
+                    <h3 class="text-2xl font-bold mb-4">DJ</h3>
+                    <p class="text-gray-300 mb-6">Breng de beste muziek en creëer de perfecte sfeer voor onze gasten.</p>
+                    <a href="jobs/dj.html" class="btn-primary">Solliciteer Nu</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-discord"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                    <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
-
-    <script>
-        // Load navigation
-        fetch('components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
-    </script>
 </body>
 </html> 

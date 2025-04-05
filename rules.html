@@ -6,78 +6,24 @@
     <title>Vanilla Unicorn - Huisregels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 107, 107, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="components/styles.css">
 </head>
-<body class="text-white">
+<body>
     <!-- Navigation -->
     <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
-                    <div class="relative group">
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="dropdown relative">
                         <button class="hover:text-pink-500 transition duration-300">Contact</button>
-                        <div class="absolute hidden group-hover:block w-48 bg-black/90 rounded-lg shadow-lg py-2 mt-2">
-                            <a href="contact.html" class="block px-4 py-2 hover:bg-pink-500/20">Contact</a>
-                            <a href="work.html" class="block px-4 py-2 hover:bg-pink-500/20">Werk Bij Ons</a>
-                            <a href="reservation.html" class="block px-4 py-2 hover:bg-pink-500/20">Reserveren</a>
+                        <div class="dropdown-content">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -89,100 +35,56 @@
     </nav>
 
     <!-- Rules Section -->
-    <section class="pt-32 pb-20">
+    <section class="min-h-screen pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Huisregels</h1>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- General Rules -->
-                <div class="rule-card glass-effect p-8 rounded-xl">
+            <h1 class="text-5xl font-bold mb-12 text-center gradient-text">Huisregels</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-user-shield"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Algemene Regels</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Respecteer alle medewerkers en gasten</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geen ongepast gedrag of intimidatie</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geen drugs of illegaal gedrag</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Volg de instructies van het personeel op</span>
-                        </li>
+                    <h3 class="text-2xl font-bold mb-4">Gedrag</h3>
+                    <ul class="space-y-2">
+                        <li>Respecteer alle medewerkers en gasten</li>
+                        <li>Geen ongewenste intimiteiten</li>
+                        <li>Geen drugs of wapens</li>
+                        <li>Geen opnames maken zonder toestemming</li>
                     </ul>
                 </div>
-
-                <!-- Dress Code -->
-                <div class="rule-card glass-effect p-8 rounded-xl">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Kledingvoorschriften</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Elegante kleding vereist</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geen sportkleding of slippers</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Nette schoenen verplicht</span>
-                        </li>
+                    <ul class="space-y-2">
+                        <li>Nette kleding verplicht</li>
+                        <li>Geen sportkleding</li>
+                        <li>Geen petten of caps</li>
+                        <li>Geen trainingspakken</li>
                     </ul>
                 </div>
-
-                <!-- VIP Rules -->
-                <div class="rule-card glass-effect p-8 rounded-xl">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
-                        <i class="fas fa-crown"></i>
+                        <i class="fas fa-glass-martini-alt"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">VIP Regels</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Reservering minimaal 24 uur van tevoren</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Minimum besteding van toepassing</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geen fotografie zonder toestemming</span>
-                        </li>
+                    <h3 class="text-2xl font-bold mb-4">Alcohol & Drankjes</h3>
+                    <ul class="space-y-2">
+                        <li>Minimumleeftijd 18 jaar</li>
+                        <li>Geen eigen drank meenemen</li>
+                        <li>Geen alcohol aan minderjarigen</li>
+                        <li>Verantwoord alcoholgebruik</li>
                     </ul>
                 </div>
-
-                <!-- Age & ID -->
-                <div class="rule-card glass-effect p-8 rounded-xl">
+                <div class="card">
                     <div class="text-pink-500 text-4xl mb-4">
-                        <i class="fas fa-id-card"></i>
+                        <i class="fas fa-ban"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Leeftijd & ID</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Minimum leeftijd: 18 jaar</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geldig ID verplicht</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
-                            <span>Geen toegang zonder ID</span>
-                        </li>
+                    <h3 class="text-2xl font-bold mb-4">Verboden Items</h3>
+                    <ul class="space-y-2">
+                        <li>Geen wapens of gevaarlijke voorwerpen</li>
+                        <li>Geen drugs of illegale substanties</li>
+                        <li>Geen professionele camera's</li>
+                        <li>Geen grote tassen of rugzakken</li>
                     </ul>
                 </div>
             </div>
@@ -190,17 +92,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-discord"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                    <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
