@@ -3,27 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla Unicorn - Bartender Vacature</title>
+    <title>Vanilla Unicorn - Bartender</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../components/styles.css">
+    <style>
+        .glitter-bg {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .glitter-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glitter 2s infinite;
+        }
+        @keyframes glitter {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            transform: scale(1.05);
+        }
+        .requirement-item {
+            transition: all 0.3s ease;
+        }
+        .requirement-item:hover {
+            transform: translateX(5px);
+            color: #ff6b6b;
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-pink-50 to-white min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20 backdrop-blur-lg">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <a href="../index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <a href="../index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="../gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="../rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
                     <div class="dropdown relative">
-                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
                         <div class="dropdown-content">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                            <a href="../contact.html">Contact</a>
+                            <a href="../work.html">Werk Bij Ons</a>
+                            <a href="../reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -34,138 +92,102 @@
         </div>
     </nav>
 
-    <!-- Job Section -->
-    <section class="min-h-screen pt-32 pb-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-12 text-center gradient-text">Bartender Vacature</h1>
-            <div class="max-w-3xl mx-auto">
-                <div class="card mb-8">
-                    <h2 class="text-3xl font-bold mb-6">Over de Functie</h2>
-                    <p class="text-gray-300 mb-6">Als bartender bij Vanilla Unicorn ben je verantwoordelijk voor het bereiden en serveren van drankjes aan onze gasten. Je zorgt voor een uitstekende service en creëert een gezellige sfeer aan de bar.</p>
-                    <h3 class="text-2xl font-bold mb-4">Verantwoordelijkheden</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 mb-6">
-                        <li>Bereiden en serveren van cocktails en andere drankjes</li>
-                        <li>Assisteren bij het maken van de menukaart</li>
-                        <li>Beheren van de voorraad en bestellingen</li>
-                        <li>Zorgen voor een schone en georganiseerde werkplek</li>
-                        <li>Omgaan met klantvragen en -wensen</li>
-                    </ul>
-                    <h3 class="text-2xl font-bold mb-4">Eisen</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300">
-                        <li>Ervaring als bartender</li>
-                        <li>Kennis van cocktails en mixologie</li>
-                        <li>Goede communicatieve vaardigheden</li>
-                        <li>Flexibele beschikbaarheid</li>
-                        <li>Minimaal 18 jaar oud</li>
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('../assets/jobs/bartender.jpg')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        <div class="absolute inset-0 glitter-bg opacity-10"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="text-center mb-16">
+                <h1 class="text-6xl font-bold mb-6 glitter-text hover-glow">Bartender</h1>
+                <p class="text-2xl text-gray-300">Word onderdeel van ons professionele bar team</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Requirements -->
+                <div class="bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Eisen</h2>
+                    <ul class="space-y-4">
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Ervaring in de horeca</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Kennis van cocktails en drankjes</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Goede sociale vaardigheden</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Flexibele beschikbaarheid</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Minimaal 18 jaar oud</span>
+                        </li>
                     </ul>
                 </div>
 
-                <form id="bartenderForm" class="card p-8">
-                    <h2 class="text-3xl font-bold mb-6">Solliciteer Nu</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="form-group">
-                            <label for="firstName" class="block mb-2">Voornaam</label>
-                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                <!-- Benefits -->
+                <div class="bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Voordelen</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="benefit-card bg-pink-50/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-money-bill-wave text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Competitief salaris</span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName" class="block mb-2">Achternaam</label>
-                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                        <div class="benefit-card bg-pink-50/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Professioneel team</span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email" class="block mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                        <div class="benefit-card bg-pink-50/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Training en ontwikkeling</span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone" class="block mb-2">Telefoon</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="experience" class="block mb-2">Ervaring</label>
-                            <textarea id="experience" name="experience" rows="4" class="form-input" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="availability" class="block mb-2">Beschikbaarheid</label>
-                            <textarea id="availability" name="availability" rows="4" class="form-input" required></textarea>
+                        <div class="benefit-card bg-pink-50/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-glass-cheers text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Gratis drankjes tijdens diensten</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group mt-6">
-                        <label for="motivation" class="block mb-2">Motivatie</label>
-                        <textarea id="motivation" name="motivation" rows="4" class="form-input" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full mt-8">Verstuur Sollicitatie</button>
-                </form>
+                </div>
+            </div>
+
+            <!-- Apply Button -->
+            <div class="text-center mt-12">
+                <a href="../contact.html" class="btn-primary inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    Solliciteer Nu
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12">
+    <footer class="py-12 bg-gradient-to-b from-white to-pink-50">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
-                    <i class="fab fa-discord text-3xl"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-instagram text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-tiktok text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('bartenderForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                experience: document.getElementById('experience').value,
-                availability: document.getElementById('availability').value,
-                motivation: document.getElementById('motivation').value
-            };
-
-            const message = {
-                embeds: [{
-                    title: "Nieuwe Bartender Sollicitatie",
-                    color: 0xFF6B6B,
-                    fields: [
-                        { name: "Naam", value: `${formData.firstName} ${formData.lastName}` },
-                        { name: "Email", value: formData.email },
-                        { name: "Telefoon", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience },
-                        { name: "Beschikbaarheid", value: formData.availability },
-                        { name: "Motivatie", value: formData.motivation }
-                    ],
-                    timestamp: new Date().toISOString()
-                }]
-            };
-
-            try {
-                const response = await fetch('YOUR_BARTENDER_WEBHOOK_URL', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(message)
-                });
-
-                if (response.ok) {
-                    alert('Sollicitatie succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
-                    document.getElementById('bartenderForm').reset();
-                } else {
-                    throw new Error('Er is een fout opgetreden bij het verzenden van de sollicitatie.');
-                }
-            } catch (error) {
-                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
-                console.error('Error:', error);
-            }
-        });
-    </script>
 </body>
 </html> 
