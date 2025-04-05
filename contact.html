@@ -115,7 +115,7 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
@@ -128,19 +128,59 @@
             };
             
             try {
-                // Get existing inquiries from localStorage
-                const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
+                // Replace YOUR_WEBHOOK_URL with your actual Discord webhook URL
+                const webhookUrl = 'https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5';
                 
-                // Add new inquiry
-                inquiries.push(inquiry);
-                
-                // Save back to localStorage
-                localStorage.setItem('inquiries', JSON.stringify(inquiries));
-                
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
+                // Create the embed message
+                const embed = {
+                    title: 'New Contact Form Submission',
+                    color: 0xff6b6b, // Pink color
+                    fields: [
+                        {
+                            name: 'Name',
+                            value: inquiry.name,
+                            inline: true
+                        },
+                        {
+                            name: 'Phone',
+                            value: inquiry.phone,
+                            inline: true
+                        },
+                        {
+                            name: 'Subject',
+                            value: inquiry.subject,
+                            inline: true
+                        },
+                        {
+                            name: 'Message',
+                            value: inquiry.message
+                        },
+                        {
+                            name: 'Date',
+                            value: new Date(inquiry.date).toLocaleString()
+                        }
+                    ]
+                };
+
+                // Send to Discord
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        embeds: [embed]
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
             } catch (error) {
-                console.error('Error saving inquiry:', error);
+                console.error('Error sending message:', error);
                 alert('There was an error sending your message. Please try again later.');
             }
         });
