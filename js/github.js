@@ -1,6 +1,6 @@
 // GitHub API configuration
-const GITHUB_TOKEN = 'YOUR_GITHUB_TOKEN'; // Replace with your GitHub Personal Access Token
-const REPO_OWNER = 'YOUR_GITHUB_USERNAME'; // Replace with your GitHub username
+const GITHUB_TOKEN = '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'; // Replace with your GitHub Personal Access Token
+const REPO_OWNER = 'aymanscripts'; // Replace with your GitHub username
 const REPO_NAME = 'SC-Site'; // Replace with your repository name
 const FILE_PATH = 'data/inquiries.json';
 
