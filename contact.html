@@ -115,7 +115,7 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
@@ -128,17 +128,21 @@
             };
             
             try {
-                // Get existing inquiries from localStorage
-                const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
-                
-                // Add new inquiry
-                inquiries.push(inquiry);
-                
-                // Save back to localStorage
-                localStorage.setItem('inquiries', JSON.stringify(inquiries));
-                
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
+                // Send the inquiry to the server
+                const response = await fetch('/api/save-inquiry', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(inquiry)
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                } else {
+                    throw new Error('Failed to save inquiry');
+                }
             } catch (error) {
                 console.error('Error saving inquiry:', error);
                 alert('There was an error sending your message. Please try again later.');
