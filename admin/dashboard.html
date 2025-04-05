@@ -77,37 +77,19 @@
             window.location.href = 'login.html';
         });
 
-        // Function to load inquiries from JSON file
-        async function loadInquiries() {
-            try {
-                const response = await fetch('../data/inquiries.json');
-                if (!response.ok) throw new Error('Failed to load inquiries');
-                return await response.json();
-            } catch (error) {
-                console.error('Error loading inquiries:', error);
-                return [];
-            }
+        // Function to load inquiries from localStorage
+        function loadInquiries() {
+            return JSON.parse(localStorage.getItem('inquiries') || '[]');
         }
 
-        // Function to save inquiries to JSON file
-        async function saveInquiries(inquiries) {
-            try {
-                const response = await fetch('../data/inquiries.json', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(inquiries)
-                });
-                if (!response.ok) throw new Error('Failed to save inquiries');
-            } catch (error) {
-                console.error('Error saving inquiries:', error);
-            }
+        // Function to save inquiries to localStorage
+        function saveInquiries(inquiries) {
+            localStorage.setItem('inquiries', JSON.stringify(inquiries));
         }
 
         // Function to render inquiries
-        async function renderInquiries() {
-            const inquiries = await loadInquiries();
+        function renderInquiries() {
+            const inquiries = loadInquiries();
             const inquiriesTable = document.getElementById('inquiriesTable');
             inquiriesTable.innerHTML = inquiries.map((inquiry, index) => `
                 <tr class="border-b border-gray-700">
@@ -126,12 +108,12 @@
         }
 
         // Function to delete inquiry
-        window.deleteInquiry = async function(index) {
+        window.deleteInquiry = function(index) {
             if (confirm('Are you sure you want to delete this inquiry?')) {
-                const inquiries = await loadInquiries();
+                const inquiries = loadInquiries();
                 inquiries.splice(index, 1);
-                await saveInquiries(inquiries);
-                await renderInquiries();
+                saveInquiries(inquiries);
+                renderInquiries();
             }
         };
 

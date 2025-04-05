@@ -115,7 +115,7 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const formData = new FormData(this);
@@ -128,21 +128,14 @@
             };
             
             try {
-                // Load existing inquiries
-                const response = await fetch('data/inquiries.json');
-                const inquiries = await response.json();
+                // Get existing inquiries from localStorage
+                const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
                 
                 // Add new inquiry
                 inquiries.push(inquiry);
                 
-                // Save updated inquiries
-                await fetch('data/inquiries.json', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(inquiries)
-                });
+                // Save back to localStorage
+                localStorage.setItem('inquiries', JSON.stringify(inquiries));
                 
                 alert('Thank you for your message! We will get back to you soon.');
                 this.reset();
