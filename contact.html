@@ -128,16 +128,16 @@
             };
             
             try {
-                // Load existing inquiries
-                const response = await fetch('data/inquiries.json');
+                // Get existing inquiries
+                const response = await fetch('http://localhost:3000/api/inquiries');
                 const inquiries = await response.json();
                 
                 // Add new inquiry
                 inquiries.push(inquiry);
                 
                 // Save updated inquiries
-                await fetch('data/inquiries.json', {
-                    method: 'PUT',
+                await fetch('http://localhost:3000/api/inquiries', {
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
