@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Base Styles */
+/* Base styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg') center/cover fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/hero-bg.jpg') center/cover fixed;
     color: white;
 }
 
@@ -105,14 +105,7 @@ input:focus, select:focus, textarea:focus {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+    border-radius: 0.5rem;
 }
 
 .gallery-item img {
@@ -128,14 +121,14 @@ input:focus, select:focus, textarea:focus {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    padding: 2rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Footer */
@@ -144,11 +137,13 @@ footer {
     border-top: 1px solid rgba(255, 107, 107, 0.2);
 }
 
+/* Social icons */
 .social-icon {
+    color: #9ca3af;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover {
     color: #ff6b6b;
-    transform: translateY(-3px);
+    transform: scale(1.1);
 } 

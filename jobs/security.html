@@ -7,93 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../components/styles.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/hero-bg.jpg') center/cover fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .glass-effect {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 107, 107, 0.2);
-        }
-
-        .form-input {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-        }
-    </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-black/60 to-black/60 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-fixed">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+    <nav class="fixed w-full bg-black/70 backdrop-blur-md z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold bg-gradient-to-r from-pink-500 to-pink-600 bg-clip-text text-transparent">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
                     <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
                     <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
                     <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
-                    <div class="dropdown relative">
+                    <div class="relative group">
                         <button class="hover:text-pink-500 transition duration-300">Contact</button>
-                        <div class="dropdown-content">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                        <div class="absolute hidden group-hover:block bg-black/90 min-w-[200px] rounded-lg shadow-lg border border-pink-500/20">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +39,7 @@
         <div class="absolute inset-0 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-7xl font-bold mb-6 gradient-text hover-glow">Security Vacature</h1>
+            <h1 class="text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-pink-600 bg-clip-text text-transparent hover:text-shadow-lg hover:shadow-pink-500/50">Security Vacature</h1>
             <p class="text-2xl mb-12 text-gray-300">Word onderdeel van ons professionele security team</p>
         </div>
     </section>
@@ -118,7 +48,7 @@
     <section class="py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
-                <div class="card mb-8">
+                <div class="bg-black/70 backdrop-blur-md rounded-xl p-8 mb-8 border border-pink-500/20">
                     <h2 class="text-3xl font-bold mb-6">Over de Functie</h2>
                     <p class="text-gray-300 mb-6">Als security bij Vanilla Unicorn ben je verantwoordelijk voor de veiligheid van onze gasten en medewerkers. Je zorgt voor een veilige en plezierige omgeving voor iedereen.</p>
                     <h3 class="text-2xl font-bold mb-4">Verantwoordelijkheden</h3>
@@ -139,39 +69,41 @@
                     </ul>
                 </div>
 
-                <form id="securityForm" class="card p-8">
+                <form id="securityForm" class="bg-black/70 backdrop-blur-md rounded-xl p-8 border border-pink-500/20">
                     <h2 class="text-3xl font-bold mb-6">Solliciteer Nu</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="form-group">
+                        <div>
                             <label for="firstName" class="block mb-2">Voornaam</label>
-                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            <input type="text" id="firstName" name="firstName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label for="lastName" class="block mb-2">Achternaam</label>
-                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            <input type="text" id="lastName" name="lastName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label for="email" class="block mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <input type="email" id="email" name="email" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label for="phone" class="block mb-2">Telefoon</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                            <input type="tel" id="phone" name="phone" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label for="experience" class="block mb-2">Ervaring</label>
-                            <textarea id="experience" name="experience" rows="4" class="form-input" required></textarea>
+                            <textarea id="experience" name="experience" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label for="availability" class="block mb-2">Beschikbaarheid</label>
-                            <textarea id="availability" name="availability" rows="4" class="form-input" required></textarea>
+                            <textarea id="availability" name="availability" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
                     </div>
-                    <div class="form-group mt-6">
+                    <div class="mt-6">
                         <label for="motivation" class="block mb-2">Motivatie</label>
-                        <textarea id="motivation" name="motivation" rows="4" class="form-input" required></textarea>
+                        <textarea id="motivation" name="motivation" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-full mt-8">Verstuur Sollicitatie</button>
+                    <button type="submit" class="w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-pink-500/30">
+                        Verstuur Sollicitatie
+                    </button>
                 </form>
             </div>
         </div>
@@ -181,13 +113,13 @@
     <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300">
                     <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                     <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                     <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
