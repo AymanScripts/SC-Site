@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Vanilla Unicorn</title>
+    <title>Diensten - Vanilla Unicorn</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,6 +11,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
         }
         
         .gradient-text {
@@ -22,19 +23,37 @@
         .glass-effect {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-        
+
+        .glass-effect:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #ff6b6b;
+        }
+
         .service-card {
             transition: all 0.3s ease;
         }
-        
+
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="text-white">
     <!-- Navigation -->
     <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
@@ -42,8 +61,8 @@
                 <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Gallery</a>
-                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Services</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
                     <a href="contact.html" class="hover:text-pink-500 transition duration-300">Contact</a>
                 </div>
                 <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
@@ -56,103 +75,118 @@
     <!-- Services Section -->
     <section class="pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text">Our Services</h1>
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Onze Diensten</h1>
             
-            <!-- VIP Experience -->
-            <div class="glass-effect p-8 rounded-xl mb-12 service-card">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="w-full md:w-1/3">
-                        <img src="assets/gallery/vip-1.jpg" alt="VIP Experience" class="w-full h-64 object-cover rounded-lg">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- VIP Service -->
+                <div class="service-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-crown"></i>
                     </div>
-                    <div class="w-full md:w-2/3">
-                        <h2 class="text-3xl font-bold mb-4 text-pink-500">VIP Experience</h2>
-                        <p class="text-gray-300 mb-4">Experience the ultimate luxury with our VIP services. Enjoy private rooms, exclusive entertainment, and premium bottle service.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Private VIP rooms</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Personalized service</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Premium bottle service</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4">VIP Service</h3>
+                    <p class="text-gray-300 mb-6">Geniet van exclusieve VIP-behandeling met persoonlijke service en premium faciliteiten.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Privé VIP-ruimte</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Persoonlijke host</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Premium drankjes</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                        Boek Nu
+                    </a>
                 </div>
-            </div>
-            
-            <!-- Live Entertainment -->
-            <div class="glass-effect p-8 rounded-xl mb-12 service-card">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="w-full md:w-1/3">
-                        <img src="assets/gallery/entertainment-1.jpg" alt="Live Entertainment" class="w-full h-64 object-cover rounded-lg">
+
+                <!-- Private Events -->
+                <div class="service-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <div class="w-full md:w-2/3">
-                        <h2 class="text-3xl font-bold mb-4 text-pink-500">Live Entertainment</h2>
-                        <p class="text-gray-300 mb-4">Enjoy world-class performances from our talented entertainers. From pole dancing to live music, we offer the best entertainment in Los Santos.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Professional dancers</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Live music performances</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Special events and shows</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Privé Evenementen</h3>
+                    <p class="text-gray-300 mb-6">Organiseer uw eigen privé-evenement in onze exclusieve ruimtes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Privé ruimte huur</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Persoonlijk menu</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Dedicated service</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                        Boek Nu
+                    </a>
                 </div>
-            </div>
-            
-            <!-- Premium Bar -->
-            <div class="glass-effect p-8 rounded-xl service-card">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="w-full md:w-1/3">
-                        <img src="assets/gallery/interior-2.jpg" alt="Premium Bar" class="w-full h-64 object-cover rounded-lg">
+
+                <!-- Bottle Service -->
+                <div class="service-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-glass-martini-alt"></i>
                     </div>
-                    <div class="w-full md:w-2/3">
-                        <h2 class="text-3xl font-bold mb-4 text-pink-500">Premium Bar</h2>
-                        <p class="text-gray-300 mb-4">Our expert mixologists craft the finest cocktails using premium spirits. Enjoy our extensive selection of drinks in a luxurious setting.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Expert mixologists</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Premium spirits and wines</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-pink-500"></i>
-                                <span>Signature cocktails</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Bottle Service</h3>
+                    <p class="text-gray-300 mb-6">Exclusieve bottle service met premium drankjes en persoonlijke service.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Premium flessen</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>Persoonlijke bartender</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-2"></i>
+                            <span>VIP tafel service</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                        Boek Nu
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-pink-500/20">
+    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center mb-8">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+            <div class="flex justify-center mb-8 space-x-6">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
                     <i class="fab fa-discord"></i>
                 </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
-            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. All rights reserved.</p>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Add smooth scroll to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
