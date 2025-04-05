@@ -224,14 +224,13 @@
                         `**E-mail:** ${data.email}\n` +
                         `**Telefoon:** ${data.phone}\n` +
                         `**Ervaring:**\n${data.experience}\n` +
-                        `**Certificaten:**\n${data.certificates}\n` +
                         `**Motivatie:**\n${data.motivation}\n` +
                         `**Beschikbaarheid:** ${data['availability[]'].join(', ')}\n` +
                         `**Datum:** ${new Date().toLocaleString('nl-NL')}`
             };
 
             // Send to Discord webhook
-            fetch('YOUR_SECURITY_WEBHOOK_URL', {
+            fetch('https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

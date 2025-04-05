@@ -101,7 +101,7 @@
                     </ul>
                 </div>
 
-                <form class="glass-effect p-8 rounded-xl reservation-card">
+                <form class="glass-effect p-8 rounded-xl reservation-card" id="reservationForm">
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-gray-300 mb-2">Naam</label>
@@ -175,5 +175,55 @@
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
+
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+
+        // Form submission
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Format the message for Discord
+            const message = {
+                content: `**Nieuwe Reservering**\n\n` +
+                        `**Naam:** ${data.firstName} ${data.lastName}\n` +
+                        `**E-mail:** ${data.email}\n` +
+                        `**Telefoon:** ${data.phone}\n` +
+                        `**Datum:** ${data.date}\n` +
+                        `**Aantal Personen:** ${data.persons}\n` +
+                        `**Reservering Type:** ${data.type}\n` +
+                        `**Speciale Wensen:**\n${data.requests}\n` +
+                        `**Datum Aanvraag:** ${new Date().toLocaleString('nl-NL')}`
+            };
+
+            // Send to Discord webhook
+            fetch('https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(message)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Bedankt voor je reservering! We nemen zo snel mogelijk contact met je op.');
+                    this.reset();
+                } else {
+                    throw new Error('Er is iets misgegaan. Probeer het later opnieuw.');
+                }
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+        });
+    </script>
 </body>
 </html> 
