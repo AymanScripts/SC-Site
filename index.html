@@ -6,20 +6,46 @@
     <title>Luxury Club - FiveM Strip Club</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-black/80 backdrop-blur-sm z-50">
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-pink-500">Luxury Club</div>
+                <div class="text-3xl font-bold gradient-text">Luxury Club</div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-pink-500 transition">Home</a>
-                    <a href="#gallery" class="hover:text-pink-500 transition">Gallery</a>
-                    <a href="#services" class="hover:text-pink-500 transition">Services</a>
-                    <a href="#contact" class="hover:text-pink-500 transition">Contact</a>
+                    <a href="#home" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="#gallery" class="hover:text-pink-500 transition duration-300">Gallery</a>
+                    <a href="#services" class="hover:text-pink-500 transition duration-300">Services</a>
+                    <a href="#contact" class="hover:text-pink-500 transition duration-300">Contact</a>
                 </div>
-                <button class="md:hidden">
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -27,37 +53,37 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative">
-        <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-30"></div>
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-6xl font-bold mb-4">Welcome to Luxury Club</h1>
-            <p class="text-xl mb-8">The most exclusive FiveM strip club experience</p>
-            <a href="#gallery" class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full transition">View Gallery</a>
+            <h1 class="text-7xl font-bold mb-6 gradient-text">Welcome to Luxury Club</h1>
+            <p class="text-2xl mb-12 text-gray-300">The most exclusive FiveM strip club experience</p>
+            <a href="#gallery" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-12 py-4 rounded-full transition duration-300 shadow-lg hover:shadow-pink-500/30">View Gallery</a>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-900">
+    <section id="gallery" class="py-24 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Gallery</h2>
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Our Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Gallery items will be added here -->
-                <div class="gallery-item relative group overflow-hidden rounded-lg">
-                    <img src="assets/gallery-1.jpg" alt="Club Interior" class="w-full h-80 object-cover transition duration-300 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-white text-xl">Club Interior</span>
+                <div class="gallery-item relative group overflow-hidden rounded-xl hover-scale">
+                    <img src="assets/gallery/gallery-1.jpg" alt="Club Interior" class="w-full h-96 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-xl font-medium">Club Interior</span>
                     </div>
                 </div>
-                <div class="gallery-item relative group overflow-hidden rounded-lg">
-                    <img src="assets/gallery-2.jpg" alt="VIP Room" class="w-full h-80 object-cover transition duration-300 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-white text-xl">VIP Room</span>
+                <div class="gallery-item relative group overflow-hidden rounded-xl hover-scale">
+                    <img src="assets/gallery/gallery-2.jpg" alt="VIP Room" class="w-full h-96 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-xl font-medium">VIP Room</span>
                     </div>
                 </div>
-                <div class="gallery-item relative group overflow-hidden rounded-lg">
-                    <img src="assets/gallery-3.jpg" alt="Dance Floor" class="w-full h-80 object-cover transition duration-300 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <span class="text-white text-xl">Dance Floor</span>
+                <div class="gallery-item relative group overflow-hidden rounded-xl hover-scale">
+                    <img src="assets/gallery/gallery-3.jpg" alt="Dance Floor" class="w-full h-96 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-xl font-medium">Dance Floor</span>
                     </div>
                 </div>
             </div>
@@ -65,65 +91,65 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-black">
+    <section id="services" class="py-24 bg-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-crown text-4xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">VIP Experience</h3>
-                    <p>Exclusive private rooms and premium services for our VIP guests.</p>
+                <div class="glass-effect p-8 rounded-xl text-center hover-scale">
+                    <i class="fas fa-crown text-5xl text-pink-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">VIP Experience</h3>
+                    <p class="text-gray-300">Exclusive private rooms and premium services for our VIP guests.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-music text-4xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Live Entertainment</h3>
-                    <p>Daily performances by our talented dancers and entertainers.</p>
+                <div class="glass-effect p-8 rounded-xl text-center hover-scale">
+                    <i class="fas fa-music text-5xl text-pink-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Live Entertainment</h3>
+                    <p class="text-gray-300">Daily performances by our talented dancers and entertainers.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-glass-martini-alt text-4xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Premium Bar</h3>
-                    <p>Extensive selection of premium drinks and cocktails.</p>
+                <div class="glass-effect p-8 rounded-xl text-center hover-scale">
+                    <i class="fas fa-glass-martini-alt text-5xl text-pink-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Premium Bar</h3>
+                    <p class="text-gray-300">Extensive selection of premium drinks and cocktails.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900">
+    <section id="contact" class="py-24 bg-gradient-to-b from-gray-900 to-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Contact Us</h2>
             <div class="max-w-2xl mx-auto">
-                <form class="space-y-6">
+                <form class="space-y-8">
                     <div>
-                        <label class="block mb-2">Name</label>
-                        <input type="text" class="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <label class="block mb-3 text-lg">Name</label>
+                        <input type="text" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700">
                     </div>
                     <div>
-                        <label class="block mb-2">Email</label>
-                        <input type="email" class="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <label class="block mb-3 text-lg">Email</label>
+                        <input type="email" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700">
                     </div>
                     <div>
-                        <label class="block mb-2">Message</label>
-                        <textarea class="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 h-32"></textarea>
+                        <label class="block mb-3 text-lg">Message</label>
+                        <textarea class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700 h-40"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded transition">Send Message</button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-4 rounded-xl transition duration-300 shadow-lg hover:shadow-pink-500/30 text-lg font-medium">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-8">
+    <footer class="bg-black py-12 border-t border-pink-500/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition">
-                    <i class="fab fa-discord text-2xl"></i>
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+                    <i class="fab fa-discord"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition">
-                    <i class="fab fa-twitter text-2xl"></i>
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+                    <i class="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition">
-                    <i class="fab fa-instagram text-2xl"></i>
+                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Luxury Club. All rights reserved.</p>
