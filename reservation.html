@@ -105,19 +105,19 @@
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-gray-300 mb-2">Naam</label>
-                            <input type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                            <input type="text" name="name" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
                         </div>
                         <div>
                             <label class="block text-gray-300 mb-2">Telefoonnummer</label>
-                            <input type="tel" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                            <input type="tel" name="phone" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
                         </div>
                         <div>
                             <label class="block text-gray-300 mb-2">Datum</label>
-                            <input type="date" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                            <input type="date" name="date" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
                         </div>
                         <div>
                             <label class="block text-gray-300 mb-2">Aantal Personen</label>
-                            <select class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                            <select name="persons" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
                                 <option value="">Selecteer aantal</option>
                                 <option value="1-2">1-2 personen</option>
                                 <option value="3-5">3-5 personen</option>
@@ -147,7 +147,7 @@
 
                     <div class="mb-6">
                         <label class="block text-gray-300 mb-2">Speciale Wensen</label>
-                        <textarea class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" rows="4"></textarea>
+                        <textarea name="requests" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" rows="4"></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
@@ -194,8 +194,7 @@
             // Format the message for Discord
             const message = {
                 content: `**Nieuwe Reservering**\n\n` +
-                        `**Naam:** ${data.firstName} ${data.lastName}\n` +
-                        `**E-mail:** ${data.email}\n` +
+                        `**Naam:** ${data.name}\n` +
                         `**Telefoon:** ${data.phone}\n` +
                         `**Datum:** ${data.date}\n` +
                         `**Aantal Personen:** ${data.persons}\n` +
