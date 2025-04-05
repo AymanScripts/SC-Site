@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security - Vanilla Unicorn</title>
+    <title>Vanilla Unicorn - Security Vacature</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../components/styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -77,125 +78,117 @@
         }
     </style>
 </head>
-<body class="text-white">
-    <!-- Include Navigation -->
-    <div id="navbar"></div>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold gradient-text">Vanilla Unicorn</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="dropdown relative">
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <div class="dropdown-content">
+                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
+                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Job Application Section -->
-    <section class="pt-32 pb-20">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-7xl font-bold mb-6 gradient-text hover-glow">Security Vacature</h1>
+            <p class="text-2xl mb-12 text-gray-300">Word onderdeel van ons professionele security team</p>
+        </div>
+    </section>
+
+    <!-- Job Section -->
+    <section class="py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
-                <h1 class="text-5xl font-bold mb-8 gradient-text hover-glow">Security Sollicitatie</h1>
-                
-                <div class="glass-effect p-8 rounded-xl mb-8">
-                    <h2 class="text-2xl font-bold mb-4">Over de Functie</h2>
-                    <p class="text-gray-300 mb-6">Als security medewerker bij Vanilla Unicorn ben je verantwoordelijk voor de veiligheid en het welzijn van onze gasten en medewerkers. We zoeken professionele en ervaren security medewerkers die kunnen werken in een dynamische omgeving.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Vereisten:</h3>
-                    <ul class="list-disc list-inside text-gray-300 mb-6">
-                        <li>Geldig VCA certificaat</li>
-                        <li>Ervaring in beveiliging</li>
+                <div class="card mb-8">
+                    <h2 class="text-3xl font-bold mb-6">Over de Functie</h2>
+                    <p class="text-gray-300 mb-6">Als security bij Vanilla Unicorn ben je verantwoordelijk voor de veiligheid van onze gasten en medewerkers. Je zorgt voor een veilige en plezierige omgeving voor iedereen.</p>
+                    <h3 class="text-2xl font-bold mb-4">Verantwoordelijkheden</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300 mb-6">
+                        <li>Toezicht houden op de veiligheid in en rond de club</li>
+                        <li>Handhaven van de huisregels</li>
+                        <li>Omgaan met lastige situaties en conflicten</li>
+                        <li>Assisteren bij noodsituaties</li>
+                        <li>Samenwerken met het security team</li>
+                    </ul>
+                    <h3 class="text-2xl font-bold mb-4">Eisen</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Ervaring in security of beveiliging</li>
+                        <li>Goede fysieke conditie</li>
                         <li>Uitstekende communicatieve vaardigheden</li>
-                        <li>Fysiek fit en in goede conditie</li>
+                        <li>Flexibele beschikbaarheid</li>
                         <li>Minimaal 21 jaar oud</li>
-                        <li>Bekend met de wet- en regelgeving</li>
                     </ul>
                 </div>
 
-                <form id="securityForm" class="glass-effect p-8 rounded-xl">
-                    <h2 class="text-2xl font-bold mb-6">Sollicitatieformulier</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block mb-2">Voornaam</label>
-                            <input type="text" name="firstName" required class="form-input w-full">
+                <form id="securityForm" class="card p-8">
+                    <h2 class="text-3xl font-bold mb-6">Solliciteer Nu</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="firstName" class="block mb-2">Voornaam</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block mb-2">Achternaam</label>
-                            <input type="text" name="lastName" required class="form-input w-full">
+                        <div class="form-group">
+                            <label for="lastName" class="block mb-2">Achternaam</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
                         </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block mb-2">E-mail</label>
-                            <input type="email" name="email" required class="form-input w-full">
+                        <div class="form-group">
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
-                        <div>
-                            <label class="block mb-2">Telefoonnummer</label>
-                            <input type="tel" name="phone" required class="form-input w-full">
+                        <div class="form-group">
+                            <label for="phone" class="block mb-2">Telefoon</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
                         </div>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Ervaring in beveiliging</label>
-                        <textarea name="experience" rows="4" required class="form-input w-full"></textarea>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Certificaten (VCA, etc.)</label>
-                        <textarea name="certificates" rows="2" required class="form-input w-full"></textarea>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Waarom wil je bij ons werken?</label>
-                        <textarea name="motivation" rows="4" required class="form-input w-full"></textarea>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2">Beschikbaarheid</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="maandag" class="mr-2">
-                                Maandag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="dinsdag" class="mr-2">
-                                Dinsdag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="woensdag" class="mr-2">
-                                Woensdag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="donderdag" class="mr-2">
-                                Donderdag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="vrijdag" class="mr-2">
-                                Vrijdag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="zaterdag" class="mr-2">
-                                Zaterdag
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" name="availability[]" value="zondag" class="mr-2">
-                                Zondag
-                            </label>
+                        <div class="form-group">
+                            <label for="experience" class="block mb-2">Ervaring</label>
+                            <textarea id="experience" name="experience" rows="4" class="form-input" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability" class="block mb-2">Beschikbaarheid</label>
+                            <textarea id="availability" name="availability" rows="4" class="form-input" required></textarea>
                         </div>
                     </div>
-
-                    <button type="submit" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-pink-500/30">
-                        Verstuur Sollicitatie
-                    </button>
+                    <div class="form-group mt-6">
+                        <label for="motivation" class="block mb-2">Motivatie</label>
+                        <textarea id="motivation" name="motivation" rows="4" class="form-input" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full mt-8">Verstuur Sollicitatie</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-discord"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon">
+                    <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram text-3xl"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok text-3xl"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
@@ -203,55 +196,54 @@
     </footer>
 
     <script>
-        // Load navigation
-        fetch('https://aymanscripts.github.io/SC-Site/components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
-
-        // Form submission
-        document.getElementById('securityForm').addEventListener('submit', function(e) {
+        document.getElementById('securityForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Get all checked availability days
-            const availability = Array.from(document.querySelectorAll('input[name="availability[]"]:checked'))
-                .map(checkbox => checkbox.value);
-            
-            // Format the message for Discord
-            const message = {
-                content: `**Nieuwe Security Sollicitatie**\n\n` +
-                        `**Naam:** ${data.firstName} ${data.lastName}\n` +
-                        `**E-mail:** ${data.email}\n` +
-                        `**Telefoon:** ${data.phone}\n` +
-                        `**Ervaring:**\n${data.experience}\n` +
-                        `**Motivatie:**\n${data.motivation}\n` +
-                        `**Beschikbaarheid:** ${availability.join(', ')}\n` +
-                        `**Datum:** ${new Date().toLocaleString('nl-NL')}`
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                experience: document.getElementById('experience').value,
+                availability: document.getElementById('availability').value,
+                motivation: document.getElementById('motivation').value
             };
 
-            // Send to Discord webhook
-            fetch('https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(message)
-            })
-            .then(response => {
+            const message = {
+                embeds: [{
+                    title: "Nieuwe Security Sollicitatie",
+                    color: 0xFF6B6B,
+                    fields: [
+                        { name: "Naam", value: `${formData.firstName} ${formData.lastName}` },
+                        { name: "Email", value: formData.email },
+                        { name: "Telefoon", value: formData.phone },
+                        { name: "Ervaring", value: formData.experience },
+                        { name: "Beschikbaarheid", value: formData.availability },
+                        { name: "Motivatie", value: formData.motivation }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                const response = await fetch('YOUR_SECURITY_WEBHOOK_URL', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+
                 if (response.ok) {
-                    alert('Bedankt voor je sollicitatie! We nemen zo snel mogelijk contact met je op.');
-                    this.reset();
+                    alert('Sollicitatie succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
+                    document.getElementById('securityForm').reset();
                 } else {
-                    throw new Error('Er is iets misgegaan. Probeer het later opnieuw.');
+                    throw new Error('Er is een fout opgetreden bij het verzenden van de sollicitatie.');
                 }
-            })
-            .catch(error => {
-                alert(error.message);
-            });
+            } catch (error) {
+                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                console.error('Error:', error);
+            }
         });
     </script>
 </body>
