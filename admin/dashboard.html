@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Vanilla Unicorn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-text">Admin Dashboard</div>
+                <div class="flex items-center space-x-4">
+                    <button id="logoutBtn" class="text-gray-300 hover:text-pink-500 transition duration-300">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-32 pb-20">
+        <!-- Gallery Management -->
+        <section class="mb-20">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold gradient-text">Gallery Management</h2>
+                <button id="addGalleryBtn" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-2 rounded-lg transition duration-300">
+                    <i class="fas fa-plus mr-2"></i> Add New Image
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="galleryGrid">
+                <!-- Gallery items will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Contact Inquiries -->
+        <section>
+            <h2 class="text-3xl font-bold gradient-text mb-8">Contact Inquiries</h2>
+            <div class="glass-effect rounded-xl overflow-hidden">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="px-6 py-4 text-left">Name</th>
+                            <th class="px-6 py-4 text-left">Phone</th>
+                            <th class="px-6 py-4 text-left">Subject</th>
+                            <th class="px-6 py-4 text-left">Message</th>
+                            <th class="px-6 py-4 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiriesTable">
+                        <!-- Inquiries will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Gallery Modal -->
+    <div id="addGalleryModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="glass-effect p-8 rounded-xl w-full max-w-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">Add New Gallery Image</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <form id="addGalleryForm" class="space-y-6">
+                <div>
+                    <label class="block mb-2 text-gray-300">Image</label>
+                    <input type="file" name="image" accept="image/*" class="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
+                </div>
+                <div>
+                    <label class="block mb-2 text-gray-300">Category</label>
+                    <select name="category" class="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
+                        <option value="interior">Club Interior</option>
+                        <option value="vip">VIP Rooms</option>
+                        <option value="entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-2 text-gray-300">Title</label>
+                    <input type="text" name="title" class="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
+                </div>
+                <div>
+                    <label class="block mb-2 text-gray-300">Description</label>
+                    <textarea name="description" class="w-full px-4 py-3 bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-lg transition duration-300">Add Image</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('adminLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('adminLoggedIn');
+            window.location.href = 'login.html';
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('addGalleryModal');
+        const addGalleryBtn = document.getElementById('addGalleryBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        addGalleryBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+
+        // In a real application, you would:
+        // 1. Load gallery items from a database
+        // 2. Load contact inquiries from a database
+        // 3. Handle image uploads to a server
+        // 4. Implement proper authentication
+        // 5. Add proper error handling
+
+        // For demonstration purposes, we'll use localStorage
+        const galleryItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
+        const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
+
+        // Function to render gallery items
+        function renderGalleryItems() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = galleryItems.map((item, index) => `
+                <div class="gallery-item glass-effect">
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+                        <p class="text-gray-300 mb-4">${item.description}</p>
+                        <div class="flex justify-between">
+                            <button onclick="editGalleryItem(${index})" class="text-pink-500 hover:text-pink-400">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button onclick="deleteGalleryItem(${index})" class="text-red-500 hover:text-red-400">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to render inquiries
+        function renderInquiries() {
+            const inquiriesTable = document.getElementById('inquiriesTable');
+            inquiriesTable.innerHTML = inquiries.map((inquiry, index) => `
+                <tr class="border-b border-gray-700">
+                    <td class="px-6 py-4">${inquiry.name}</td>
+                    <td class="px-6 py-4">${inquiry.phone}</td>
+                    <td class="px-6 py-4">${inquiry.subject}</td>
+                    <td class="px-6 py-4">${inquiry.message}</td>
+                    <td class="px-6 py-4">
+                        <button onclick="deleteInquiry(${index})" class="text-red-500 hover:text-red-400">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Function to add new gallery item
+        document.getElementById('addGalleryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            // In a real application, you would upload the image to a server
+            // For demonstration, we'll just use a placeholder
+            const newItem = {
+                image: URL.createObjectURL(formData.get('image')),
+                category: formData.get('category'),
+                title: formData.get('title'),
+                description: formData.get('description')
+            };
+            
+            galleryItems.push(newItem);
+            localStorage.setItem('galleryItems', JSON.stringify(galleryItems));
+            renderGalleryItems();
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            this.reset();
+        });
+
+        // Function to delete gallery item
+        window.deleteGalleryItem = function(index) {
+            if (confirm('Are you sure you want to delete this image?')) {
+                galleryItems.splice(index, 1);
+                localStorage.setItem('galleryItems', JSON.stringify(galleryItems));
+                renderGalleryItems();
+            }
+        };
+
+        // Function to delete inquiry
+        window.deleteInquiry = function(index) {
+            if (confirm('Are you sure you want to delete this inquiry?')) {
+                inquiries.splice(index, 1);
+                localStorage.setItem('inquiries', JSON.stringify(inquiries));
+                renderInquiries();
+            }
+        };
+
+        // Initial render
+        renderGalleryItems();
+        renderInquiries();
+    </script>
+</body>
+</html> 
