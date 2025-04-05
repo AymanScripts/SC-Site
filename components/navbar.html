@@ -21,4 +21,24 @@
             </button>
         </div>
     </div>
-</nav> 
+</nav>
+
+<script>
+    // Add click event listener to the dropdown button
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.querySelector('.group button');
+        const dropdownContent = document.querySelector('.group .absolute');
+
+        dropdownButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownContent.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownButton.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.add('hidden');
+            }
+        });
+    });
+</script> 
