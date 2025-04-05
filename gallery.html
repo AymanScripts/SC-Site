@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerij - Vanilla Unicorn</title>
+    <title>Gallery - Vanilla Unicorn</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,7 +11,6 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
         }
         
         .gradient-text {
@@ -23,45 +22,46 @@
         .glass-effect {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
-
-        .glass-effect:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-        }
-
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px);
-            color: #ff6b6b;
-        }
-
+        
         .gallery-item {
-            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
-
-        .gallery-item img {
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
+        
         .gallery-item:hover {
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="text-white">
+<body class="bg-black text-white">
     <!-- Navigation -->
     <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
@@ -69,8 +69,8 @@
                 <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Gallery</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Services</a>
                     <a href="contact.html" class="hover:text-pink-500 transition duration-300">Contact</a>
                 </div>
                 <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
@@ -83,60 +83,88 @@
     <!-- Gallery Section -->
     <section class="pt-32 pb-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Onze Galerij</h1>
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text">Our Gallery</h1>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Club Interieur" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Exclusief Interieur</h3>
-                        <p class="text-gray-300">Ontdek onze luxueuze binnenruimte met moderne inrichting.</p>
+            <!-- Club Interior -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">Club Interior</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-1.jpg" alt="Main Hall" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Main Hall</h3>
+                            <p class="text-gray-300">Our luxurious main hall with state-of-the-art lighting</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-2.jpg" alt="Bar Area" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Bar Area</h3>
+                            <p class="text-gray-300">Premium bar with expert mixologists</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-3.jpg" alt="Lounge" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Lounge</h3>
+                            <p class="text-gray-300">Comfortable seating areas for relaxation</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="VIP Lounge" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">VIP Lounge</h3>
-                        <p class="text-gray-300">Ervaar onze exclusieve VIP-ruimte met persoonlijke service.</p>
+            </div>
+            
+            <!-- VIP Rooms -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">VIP Rooms</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-1.jpg" alt="Private Room" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Private Room</h3>
+                            <p class="text-gray-300">Exclusive private entertainment area</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-2.jpg" alt="Luxury Suite" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Luxury Suite</h3>
+                            <p class="text-gray-300">Premium VIP experience</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-3.jpg" alt="Party Room" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Party Room</h3>
+                            <p class="text-gray-300">Perfect for group celebrations</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Bar" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Premium Bar</h3>
-                        <p class="text-gray-300">Bekijk onze uitgebreide selectie van premium drankjes.</p>
+            </div>
+            
+            <!-- Entertainment -->
+            <div>
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">Entertainment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-1.jpg" alt="Stage Show" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Stage Show</h3>
+                            <p class="text-gray-300">Professional performances</p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Dance Floor" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Dance Floor</h3>
-                        <p class="text-gray-300">Beleef de energie op onze moderne dansvloer.</p>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-2.jpg" alt="Dance Floor" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Dance Floor</h3>
+                            <p class="text-gray-300">State-of-the-art dance area</p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="Events" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Special Events</h3>
-                        <p class="text-gray-300">Bekijk foto's van onze speciale evenementen en feesten.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item glass-effect rounded-xl overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400" alt="DJ" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">DJ Optredens</h3>
-                        <p class="text-gray-300">Bekijk onze top DJ's in actie tijdens speciale avonden.</p>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-3.jpg" alt="Live Music" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Live Music</h3>
+                            <p class="text-gray-300">Regular live performances</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,33 +172,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="bg-black py-12 border-t border-pink-500/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
+            <div class="flex justify-center mb-8">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
                     <i class="fab fa-discord"></i>
                 </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-icon text-gray-400 text-3xl">
-                    <i class="fab fa-tiktok"></i>
-                </a>
             </div>
-            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Add smooth scroll to navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html> 

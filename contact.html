@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,6 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
         }
         
         .gradient-text {
@@ -23,40 +22,10 @@
         .glass-effect {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .glass-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
-        }
-
-        .form-input:focus {
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.5);
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="text-white">
+<body class="bg-black text-white">
     <!-- Navigation -->
     <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
@@ -64,8 +33,8 @@
                 <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Gallery</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Services</a>
                     <a href="contact.html" class="hover:text-pink-500 transition duration-300">Contact</a>
                 </div>
                 <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
@@ -76,41 +45,39 @@
     </nav>
 
     <!-- Contact Section -->
-    <section class="pt-32 pb-20 min-h-screen">
+    <section class="pt-32 pb-20 min-h-screen bg-gradient-to-b from-gray-900 to-black">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold text-center mb-16 gradient-text floating">Neem Contact Op</h1>
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text">Contact Us</h1>
             
             <div class="max-w-2xl mx-auto">
-                <div class="glass-effect p-8 rounded-xl mb-12 pulse">
-                    <h2 class="text-2xl font-bold mb-6 text-pink-500">Stuur ons een bericht</h2>
-                    <p class="text-gray-300 mb-8">Heb je vragen of wil je een reservering maken? Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op.</p>
+                <div class="glass-effect p-8 rounded-xl mb-12">
+                    <h2 class="text-2xl font-bold mb-6 text-pink-500">Get in Touch</h2>
+                    <p class="text-gray-300 mb-8">Have questions or want to make a reservation? Fill out the form below and we'll get back to you as soon as possible.</p>
                     
                     <form class="space-y-6" id="contactForm">
                         <div>
-                            <label class="block mb-3 text-lg">Naam</label>
-                            <input type="text" name="name" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none form-input border border-gray-700" required>
+                            <label class="block mb-3 text-lg">Name</label>
+                            <input type="text" name="name" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
                         </div>
                         <div>
-                            <label class="block mb-3 text-lg">Telefoonnummer</label>
-                            <input type="tel" name="phone" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none form-input border border-gray-700" required>
+                            <label class="block mb-3 text-lg">Phone Number</label>
+                            <input type="tel" name="phone" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
                         </div>
                         <div>
-                            <label class="block mb-3 text-lg">Onderwerp</label>
-                            <select name="subject" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none form-input border border-gray-700" required>
-                                <option value="">Kies een onderwerp</option>
-                                <option value="reservation">Reservering</option>
-                                <option value="vip">VIP Boeking</option>
-                                <option value="event">Evenement Planning</option>
-                                <option value="other">Anders</option>
+                            <label class="block mb-3 text-lg">Subject</label>
+                            <select name="subject" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700" required>
+                                <option value="">Select a subject</option>
+                                <option value="Reservation">Reservation</option>
+                                <option value="VIP Booking">VIP Booking</option>
+                                <option value="Event Planning">Event Planning</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block mb-3 text-lg">Bericht</label>
-                            <textarea name="message" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none form-input border border-gray-700 h-40" required></textarea>
+                            <label class="block mb-3 text-lg">Message</label>
+                            <textarea name="message" class="w-full px-6 py-4 bg-gray-800/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 border border-gray-700 h-40" required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-4 rounded-xl transition duration-300 shadow-lg hover:shadow-pink-500/30 text-lg font-medium transform hover:scale-105">
-                            Verstuur Bericht
-                        </button>
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-4 rounded-xl transition duration-300 shadow-lg hover:shadow-pink-500/30 text-lg font-medium">Send Message</button>
                     </form>
                 </div>
                 
@@ -119,15 +86,15 @@
                     <div class="space-y-4">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-phone text-pink-500 text-xl"></i>
-                            <span class="text-gray-300">+31 (0)6 12345678</span>
+                            <span class="text-gray-300">+1 (555) 123-4567</span>
                         </div>
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-clock text-pink-500 text-xl"></i>
-                            <span class="text-gray-300">Open 7 dagen per week, 20:00 - 04:00</span>
+                            <span class="text-gray-300">Open 7 days a week, 8 PM - 4 AM</span>
                         </div>
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-map-marker-alt text-pink-500 text-xl"></i>
-                            <span class="text-gray-300">123 Clubstraat, Amsterdam</span>
+                            <span class="text-gray-300">123 Club Street, Los Santos</span>
                         </div>
                     </div>
                 </div>
@@ -136,20 +103,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+    <footer class="bg-black py-12 border-t border-pink-500/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl transform hover:scale-110">
+            <div class="flex justify-center mb-8">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
                     <i class="fab fa-discord"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl transform hover:scale-110">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl transform hover:scale-110">
-                    <i class="fab fa-tiktok"></i>
-                </a>
             </div>
-            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. All rights reserved.</p>
         </div>
     </footer>
 
@@ -167,38 +128,41 @@
             };
             
             try {
-                const webhookUrl = 'https://discord.com/api/webhooks/1207776000000000000/your-webhook-token';
+                // Replace YOUR_WEBHOOK_URL with your actual Discord webhook URL
+                const webhookUrl = 'https://discord.com/api/webhooks/1345458646930423808/kp-Sq4ex6cobweC33_zuRYgqmauwco6Wtxfb05rgr8IBrD9bS3tB2GwZPU1e7izJj1t5';
                 
+                // Create the embed message
                 const embed = {
-                    title: 'Nieuw Contactformulier',
-                    color: 0xff6b6b,
+                    title: 'New Contact Form Submission',
+                    color: 0xff6b6b, // Pink color
                     fields: [
                         {
-                            name: 'Naam',
+                            name: 'Name',
                             value: inquiry.name,
                             inline: true
                         },
                         {
-                            name: 'Telefoon',
+                            name: 'Phone',
                             value: inquiry.phone,
                             inline: true
                         },
                         {
-                            name: 'Onderwerp',
+                            name: 'Subject',
                             value: inquiry.subject,
                             inline: true
                         },
                         {
-                            name: 'Bericht',
+                            name: 'Message',
                             value: inquiry.message
                         },
                         {
-                            name: 'Datum',
-                            value: new Date(inquiry.date).toLocaleString('nl-NL')
+                            name: 'Date',
+                            value: new Date(inquiry.date).toLocaleString()
                         }
                     ]
                 };
 
+                // Send to Discord
                 const response = await fetch(webhookUrl, {
                     method: 'POST',
                     headers: {
@@ -210,35 +174,15 @@
                 });
 
                 if (response.ok) {
-                    alert('Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.');
+                    alert('Thank you for your message! We will answer your question in-game');
                     this.reset();
                 } else {
                     throw new Error('Failed to send message');
                 }
             } catch (error) {
                 console.error('Error sending message:', error);
-                alert('Er is een fout opgetreden bij het versturen van je bericht. Probeer het later opnieuw.');
+                alert('There was an error sending your message. Please try again later.');
             }
-        });
-
-        // Add smooth scroll to navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add hover effect to glass-effect elements
-        document.querySelectorAll('.glass-effect').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'translateY(-5px)';
-            });
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'translateY(0)';
-            });
         });
     </script>
 </body>
