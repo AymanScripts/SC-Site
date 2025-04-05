@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huisregels - Vanilla Unicorn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-effect:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .rule-card {
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="relative group">
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <div class="absolute hidden group-hover:block w-48 bg-black/90 rounded-lg shadow-lg py-2 mt-2">
+                            <a href="contact.html" class="block px-4 py-2 hover:bg-pink-500/20">Contact</a>
+                            <a href="work.html" class="block px-4 py-2 hover:bg-pink-500/20">Werk Bij Ons</a>
+                            <a href="reservation.html" class="block px-4 py-2 hover:bg-pink-500/20">Reserveren</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rules Section -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Huisregels</h1>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- General Rules -->
+                <div class="rule-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Algemene Regels</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Respecteer alle medewerkers en gasten</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geen ongepast gedrag of intimidatie</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geen drugs of illegaal gedrag</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Volg de instructies van het personeel op</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Dress Code -->
+                <div class="rule-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Kledingvoorschriften</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Elegante kleding vereist</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geen sportkleding of slippers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Nette schoenen verplicht</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VIP Rules -->
+                <div class="rule-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">VIP Regels</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Reservering minimaal 24 uur van tevoren</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Minimum besteding van toepassing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geen fotografie zonder toestemming</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Age & ID -->
+                <div class="rule-card glass-effect p-8 rounded-xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Leeftijd & ID</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Minimum leeftijd: 18 jaar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geldig ID verplicht</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-pink-500 mt-1 mr-3"></i>
+                            <span>Geen toegang zonder ID</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-8 space-x-6">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+</body>
+</html> 

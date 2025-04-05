@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserveren - Vanilla Unicorn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/your-background-image.jpg') center/cover fixed;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-effect:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .reservation-card {
+            transition: all 0.3s ease;
+        }
+
+        .reservation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.5);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Diensten</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
+                    <div class="relative group">
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
+                        <div class="absolute hidden group-hover:block w-48 bg-black/90 rounded-lg shadow-lg py-2 mt-2">
+                            <a href="contact.html" class="block px-4 py-2 hover:bg-pink-500/20">Contact</a>
+                            <a href="work.html" class="block px-4 py-2 hover:bg-pink-500/20">Werk Bij Ons</a>
+                            <a href="reservation.html" class="block px-4 py-2 hover:bg-pink-500/20">Reserveren</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reservation Section -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text hover-glow">Reserveren</h1>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="glass-effect p-8 rounded-xl mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-pink-500">Reserveringsinformatie</h2>
+                    <p class="text-gray-300 mb-6">Maak een reservering voor een onvergetelijke avond bij Vanilla Unicorn. Vul het onderstaande formulier in en we nemen zo spoedig mogelijk contact met u op.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
+                            <span>Reserveringen dienen minimaal 24 uur van tevoren te worden gemaakt</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
+                            <span>Voor VIP reserveringen gelden speciale voorwaarden</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-info-circle text-pink-500 mt-1 mr-3"></i>
+                            <span>Groepsreserveringen zijn mogelijk vanaf 6 personen</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="glass-effect p-8 rounded-xl reservation-card">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Naam</label>
+                            <input type="text" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Telefoonnummer</label>
+                            <input type="tel" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Datum</label>
+                            <input type="date" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Aantal Personen</label>
+                            <select class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" required>
+                                <option value="">Selecteer aantal</option>
+                                <option value="1-2">1-2 personen</option>
+                                <option value="3-5">3-5 personen</option>
+                                <option value="6-10">6-10 personen</option>
+                                <option value="10+">10+ personen</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-300 mb-2">Reserveringstype</label>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="type" value="regular" class="text-pink-500" checked>
+                                <span>Regulier</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="type" value="vip" class="text-pink-500">
+                                <span>VIP</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="radio" name="type" value="private" class="text-pink-500">
+                                <span>Privé Evenement</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-300 mb-2">Speciale Wensen</label>
+                        <textarea class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-2 focus:border-pink-500 transition duration-300" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl transition duration-300">
+                        Reservering Versturen
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 py-12 border-t border-pink-500/20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-8 space-x-6">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon text-gray-400 text-3xl">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+</body>
+</html> 
