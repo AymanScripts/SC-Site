@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Vanilla Unicorn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Gallery</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Services</a>
+                    <a href="contact.html" class="hover:text-pink-500 transition duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text">Our Services</h1>
+            
+            <!-- VIP Experience -->
+            <div class="glass-effect p-8 rounded-xl mb-12 service-card">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3">
+                        <img src="assets/gallery/vip-1.jpg" alt="VIP Experience" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h2 class="text-3xl font-bold mb-4 text-pink-500">VIP Experience</h2>
+                        <p class="text-gray-300 mb-4">Experience the ultimate luxury with our VIP services. Enjoy private rooms, exclusive entertainment, and premium bottle service.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Private VIP rooms</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Personalized service</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Premium bottle service</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Live Entertainment -->
+            <div class="glass-effect p-8 rounded-xl mb-12 service-card">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3">
+                        <img src="assets/gallery/entertainment-1.jpg" alt="Live Entertainment" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h2 class="text-3xl font-bold mb-4 text-pink-500">Live Entertainment</h2>
+                        <p class="text-gray-300 mb-4">Enjoy world-class performances from our talented entertainers. From pole dancing to live music, we offer the best entertainment in Los Santos.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Professional dancers</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Live music performances</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Special events and shows</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Bar -->
+            <div class="glass-effect p-8 rounded-xl service-card">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3">
+                        <img src="assets/gallery/interior-2.jpg" alt="Premium Bar" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h2 class="text-3xl font-bold mb-4 text-pink-500">Premium Bar</h2>
+                        <p class="text-gray-300 mb-4">Our expert mixologists craft the finest cocktails using premium spirits. Enjoy our extensive selection of drinks in a luxurious setting.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Expert mixologists</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Premium spirits and wines</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-pink-500"></i>
+                                <span>Signature cocktails</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-pink-500/20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-8">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

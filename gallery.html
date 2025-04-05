@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Vanilla Unicorn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-text">Vanilla Unicorn</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Gallery</a>
+                    <a href="services.html" class="hover:text-pink-500 transition duration-300">Services</a>
+                    <a href="contact.html" class="hover:text-pink-500 transition duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold text-center mb-16 gradient-text">Our Gallery</h1>
+            
+            <!-- Club Interior -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">Club Interior</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-1.jpg" alt="Main Hall" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Main Hall</h3>
+                            <p class="text-gray-300">Our luxurious main hall with state-of-the-art lighting</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-2.jpg" alt="Bar Area" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Bar Area</h3>
+                            <p class="text-gray-300">Premium bar with expert mixologists</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/interior-3.jpg" alt="Lounge" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Lounge</h3>
+                            <p class="text-gray-300">Comfortable seating areas for relaxation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VIP Rooms -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">VIP Rooms</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-1.jpg" alt="Private Room" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Private Room</h3>
+                            <p class="text-gray-300">Exclusive private entertainment area</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-2.jpg" alt="Luxury Suite" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Luxury Suite</h3>
+                            <p class="text-gray-300">Premium VIP experience</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/vip-3.jpg" alt="Party Room" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Party Room</h3>
+                            <p class="text-gray-300">Perfect for group celebrations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Entertainment -->
+            <div>
+                <h2 class="text-3xl font-bold mb-8 text-pink-500">Entertainment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-1.jpg" alt="Stage Show" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Stage Show</h3>
+                            <p class="text-gray-300">Professional performances</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-2.jpg" alt="Dance Floor" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Dance Floor</h3>
+                            <p class="text-gray-300">State-of-the-art dance area</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/entertainment-3.jpg" alt="Live Music" class="w-full h-80 object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-xl font-bold mb-2">Live Music</h3>
+                            <p class="text-gray-300">Regular live performances</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-pink-500/20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-8">
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-3xl">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
