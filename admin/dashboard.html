@@ -80,7 +80,7 @@
         // Function to load inquiries from JSON file
         async function loadInquiries() {
             try {
-                const response = await fetch('http://localhost:3000/api/inquiries');
+                const response = await fetch('../data/inquiries.json');
                 if (!response.ok) throw new Error('Failed to load inquiries');
                 return await response.json();
             } catch (error) {
@@ -92,8 +92,8 @@
         // Function to save inquiries to JSON file
         async function saveInquiries(inquiries) {
             try {
-                const response = await fetch('http://localhost:3000/api/inquiries', {
-                    method: 'POST',
+                const response = await fetch('../data/inquiries.json', {
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                     },
