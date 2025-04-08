@@ -54,8 +54,14 @@
             transition: all 0.3s ease;
         }
         .requirement-item:hover {
-            transform: translateX(5px);
-            color: #ff6b6b;
+            transform: translateX(10px);
+        }
+        .requirement-icon {
+            transition: all 0.3s ease;
+        }
+        .requirement-item:hover .requirement-icon {
+            transform: scale(1.2);
+            color: #ff1493;
         }
         .benefit-card {
             transition: all 0.3s ease;
@@ -109,24 +115,28 @@
                     <h2 class="text-3xl font-bold mb-6 glitter-text">Eisen</h2>
                     <ul class="space-y-4">
                         <li class="requirement-item flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
-                            <span>Ervaring in beveiliging</span>
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Minimaal 21 jaar oud</span>
                         </li>
                         <li class="requirement-item flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
-                            <span>Geldig beveiligingscertificaat</span>
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Ervaring in beveiliging of horeca</span>
                         </li>
                         <li class="requirement-item flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
-                            <span>Goede communicatieve vaardigheden</span>
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Goede fysieke conditie</span>
                         </li>
                         <li class="requirement-item flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Professionele uitstraling</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
                             <span>Flexibele beschikbaarheid</span>
                         </li>
                         <li class="requirement-item flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
-                            <span>Minimaal 18 jaar oud</span>
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Teamplayer mentaliteit</span>
                         </li>
                     </ul>
                 </div>
@@ -165,20 +175,12 @@
 
             <!-- Apply Form -->
             <div class="max-w-2xl mx-auto mt-12">
-                <form id="securityForm" class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                <form id="applicationForm" class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
                     <h2 class="text-3xl font-bold mb-6 glitter-text">Solliciteer Nu</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="form-group">
-                            <label for="firstName" class="block mb-2 text-pink-500 font-medium">Voornaam</label>
-                            <input type="text" id="firstName" name="firstName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName" class="block mb-2 text-pink-500 font-medium">Achternaam</label>
-                            <input type="text" id="lastName" name="lastName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="block mb-2 text-pink-500 font-medium">Email</label>
-                            <input type="email" id="email" name="email" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
+                            <label for="name" class="block mb-2 text-pink-500 font-medium">Naam</label>
+                            <input type="text" id="name" name="name" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="block mb-2 text-pink-500 font-medium">Telefoon</label>
@@ -187,10 +189,6 @@
                         <div class="form-group md:col-span-2">
                             <label for="experience" class="block mb-2 text-pink-500 font-medium">Ervaring</label>
                             <textarea id="experience" name="experience" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
-                        </div>
-                        <div class="form-group md:col-span-2">
-                            <label for="certificates" class="block mb-2 text-pink-500 font-medium">Certificaten</label>
-                            <textarea id="certificates" name="certificates" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
                     </div>
                     <button type="submit" class="w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
@@ -220,28 +218,23 @@
     </footer>
 
     <script>
-        document.getElementById('securityForm').addEventListener('submit', async (e) => {
+        document.getElementById('applicationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
+                name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
-                experience: document.getElementById('experience').value,
-                certificates: document.getElementById('certificates').value
+                experience: document.getElementById('experience').value
             };
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Security Sollicitatie",
+                    title: "Nieuwe Sollicitatie - Security",
                     color: 0xFF6B6B,
                     fields: [
-                        { name: "Naam", value: `${formData.firstName} ${formData.lastName}` },
-                        { name: "Email", value: formData.email },
-                        { name: "Telefoon", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience },
-                        { name: "Certificaten", value: formData.certificates }
+                        { name: "Naam", value: formData.name },
+                        { name: "Telefoonnummer", value: formData.phone },
+                        { name: "Ervaring", value: formData.experience }
                     ],
                     timestamp: new Date().toISOString()
                 }]
@@ -258,7 +251,7 @@
 
                 if (response.ok) {
                     alert('Sollicitatie succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
-                    document.getElementById('securityForm').reset();
+                    document.getElementById('applicationForm').reset();
                 } else {
                     throw new Error('Er is een fout opgetreden bij het verzenden van de sollicitatie.');
                 }
@@ -269,5 +262,4 @@
         });
     </script>
 </body>
-</html> 
 </html> 
