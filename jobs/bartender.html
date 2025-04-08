@@ -173,11 +173,36 @@
                 </div>
             </div>
 
-            <!-- Apply Button -->
-            <div class="text-center mt-12">
-                <a href="../contact.html" class="btn-primary inline-block bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    Solliciteer Nu
-                </a>
+            <!-- Apply Form -->
+            <div class="max-w-2xl mx-auto mt-12">
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Solliciteer Nu</h2>
+                    <form id="applicationForm" class="space-y-6">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-300 mb-2">Naam</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-300 mb-2">Telefoonnummer</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="experience" class="block text-gray-300 mb-2">Ervaring</label>
+                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="cocktails" class="block text-gray-300 mb-2">Cocktail Ervaring</label>
+                            <textarea id="cocktails" name="cocktails" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je ervaring met cocktails en speciale drankjes"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="availability" class="block text-gray-300 mb-2">Beschikbaarheid</label>
+                            <textarea id="availability" name="availability" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je beschikbaarheid en voorkeuren"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                            Verstuur Sollicitatie
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -190,13 +215,10 @@
                     <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
                 <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
-                    <i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i>
-                </a>
-                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
                     <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
             </div>
-            <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
+            <p class="text-gray-400">&copy; 2025 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
     </footer>
 
@@ -207,7 +229,9 @@
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
-                experience: document.getElementById('experience').value
+                experience: document.getElementById('experience').value,
+                cocktails: document.getElementById('cocktails').value,
+                availability: document.getElementById('availability').value
             };
 
             const message = {
@@ -217,7 +241,9 @@
                     fields: [
                         { name: "Naam", value: formData.name },
                         { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience }
+                        { name: "Ervaring", value: formData.experience },
+                        { name: "Cocktail Ervaring", value: formData.cocktails },
+                        { name: "Beschikbaarheid", value: formData.availability }
                     ],
                     timestamp: new Date().toISOString()
                 }]
