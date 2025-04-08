@@ -8,18 +8,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../components/styles.css">
     <style>
-        .glitter-bg {background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb); background-size: 400% 400%; animation: gradient 15s ease infinite;}
-        @keyframes gradient {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
-        .sparkle {position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; animation: sparkle 2s infinite;}
-        @keyframes sparkle {0% {transform: scale(0); opacity: 0;} 50% {transform: scale(1); opacity: 1;} 100% {transform: scale(0); opacity: 0;}}
-        .glitter-text {background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb); -webkit-background-clip: text; background-clip: text; color: transparent; animation: glitter 2s infinite;}
-        @keyframes glitter {0% {filter: brightness(1);} 50% {filter: brightness(1.5);} 100% {filter: brightness(1);}}
-        .hover-glow {transition: all 0.3s ease;}
-        .hover-glow:hover {text-shadow: 0 0 10px rgba(255, 107, 107, 0.5); transform: scale(1.05);}
-        .requirement-item {transition: all 0.3s ease;}
-        .requirement-item:hover {transform: translateX(10px);}
-        .requirement-icon {transition: all 0.3s ease;}
-        .requirement-item:hover .requirement-icon {transform: scale(1.2); color: #ff1493;}
+        .glitter-bg {
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .glitter-text {
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glitter 2s infinite;
+        }
+        @keyframes glitter {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            transform: scale(1.05);
+        }
+        .requirement-item {
+            transition: all 0.3s ease;
+        }
+        .requirement-item:hover {
+            transform: translateX(10px);
+        }
+        .requirement-icon {
+            transition: all 0.3s ease;
+        }
+        .requirement-item:hover .requirement-icon {
+            transform: scale(1.2);
+            color: #ff1493;
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
@@ -45,22 +95,19 @@
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('../assets/jobs/stripper.jpg')] bg-cover bg-center opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
         <div class="absolute inset-0 glitter-bg opacity-10"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Dancer/Stripper</h1>
-            <p class="text-2xl mb-12 text-gray-300">Word onderdeel van ons entertainments team</p>
-        </div>
-    </section>
-
-    <section class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 glitter-bg opacity-5"></div>
         <div class="container mx-auto px-4 relative">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
-                    <h2 class="text-2xl font-bold mb-6 glitter-text">Eisen</h2>
+            <div class="text-center mb-16">
+                <h1 class="text-6xl font-bold mb-6 glitter-text hover-glow">Dancer/Stripper</h1>
+                <p class="text-2xl text-gray-300">Word onderdeel van ons professionele dans team</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Eisen</h2>
                     <ul class="space-y-4">
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
@@ -68,65 +115,65 @@
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Ervaring in dansen of entertainment</span>
+                            <span>Professionele danservaring</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Goede fysieke conditie</span>
+                            <span>Uitstekende fysieke conditie</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Professionele uitstraling</span>
+                            <span>Professionele uitstraling en presentatie</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Flexibele beschikbaarheid</span>
+                            <span>Flexibele beschikbaarheid (avonden en weekenden)</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Teamplayer mentaliteit</span>
+                            <span>Teamplayer met goede communicatieve vaardigheden</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Kennis van podiumpresentatie</span>
                         </li>
                     </ul>
                 </div>
-                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
-                    <h2 class="text-2xl font-bold mb-6 glitter-text">Voordelen</h2>
-                    <ul class="space-y-4">
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>Competitief salaris</span>
-                        </li>
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>Flexibele werktijden</span>
-                        </li>
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>Professionele werkomgeving</span>
-                        </li>
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>Gratis training en workshops</span>
-                        </li>
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>Korting op drankjes</span>
-                        </li>
-                        <li class="requirement-item flex items-center">
-                            <i class="fas fa-star requirement-icon mr-4 text-pink-500"></i>
-                            <span>VIP toegang tot evenementen</span>
-                        </li>
-                    </ul>
+
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Voordelen</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-money-bill-wave text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Competitief salaris</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Professioneel team</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Training en ontwikkeling</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-glass-cheers text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Gratis drankjes tijdens diensten</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 glitter-bg opacity-5"></div>
-        <div class="container mx-auto px-4 relative">
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
-                    <h2 class="text-2xl font-bold mb-6 glitter-text">Solliciteer Nu</h2>
+            <div class="max-w-2xl mx-auto mt-12">
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Solliciteer Nu</h2>
                     <form id="applicationForm" class="space-y-6">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-300 mb-2">Naam</label>
@@ -137,8 +184,20 @@
                             <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="mb-6">
-                            <label for="experience" class="block text-gray-300 mb-2">Ervaring</label>
-                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required></textarea>
+                            <label for="experience" class="block text-gray-300 mb-2">Dans Ervaring</label>
+                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je danservaring, inclusief stijlen en training"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="style" class="block text-gray-300 mb-2">Dansstijl</label>
+                            <textarea id="style" name="style" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Welke dansstijlen beheers je? Heb je ervaring met pole dancing?"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="performance" class="block text-gray-300 mb-2">Podium Ervaring</label>
+                            <textarea id="performance" name="performance" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je ervaring met optredens en podiumpresentatie"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="availability" class="block text-gray-300 mb-2">Beschikbaarheid</label>
+                            <textarea id="availability" name="availability" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je beschikbaarheid voor avonden en weekenden"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
                             Verstuur Sollicitatie
@@ -152,8 +211,12 @@
     <footer class="py-12 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="transform hover:scale-110 transition duration-300"><i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i></a>
-                <a href="#" class="transform hover:scale-110 transition duration-300"><i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i></a>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
+                </a>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
+                </a>
             </div>
             <p class="text-gray-400">&copy; 2025 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
@@ -166,7 +229,10 @@
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
-                experience: document.getElementById('experience').value
+                experience: document.getElementById('experience').value,
+                style: document.getElementById('style').value,
+                performance: document.getElementById('performance').value,
+                availability: document.getElementById('availability').value
             };
 
             const message = {
@@ -176,7 +242,10 @@
                     fields: [
                         { name: "Naam", value: formData.name },
                         { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience }
+                        { name: "Dans Ervaring", value: formData.experience },
+                        { name: "Dansstijl", value: formData.style },
+                        { name: "Podium Ervaring", value: formData.performance },
+                        { name: "Beschikbaarheid", value: formData.availability }
                     ],
                     timestamp: new Date().toISOString()
                 }]
