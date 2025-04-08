@@ -237,16 +237,40 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Sollicitatie - Dancer/Stripper",
+                    title: "💃 NIEUWE DANCER/STRIPPER SOLICITATIE 💃",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuwe sollicitatie binnengekomen voor de Dancer/Stripper positie!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Dans Ervaring", value: formData.experience },
-                        { name: "Dansstijl", value: formData.style },
-                        { name: "Podium Ervaring", value: formData.performance },
-                        { name: "Beschikbaarheid", value: formData.availability }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            inline: false
+                        },
+                        { 
+                            name: "💃 Dans Ervaring", 
+                            value: formData.experience,
+                            inline: false
+                        },
+                        { 
+                            name: "🎭 Dansstijl", 
+                            value: formData.style,
+                            inline: false
+                        },
+                        { 
+                            name: "🎪 Podium Ervaring", 
+                            value: formData.performance,
+                            inline: false
+                        },
+                        { 
+                            name: "📅 Beschikbaarheid", 
+                            value: formData.availability,
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - Dancer/Stripper Sollicitaties",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };

@@ -259,18 +259,50 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Sollicitatie - DJ",
+                    title: "🎵 NIEUWE DJ SOLICITATIE 🎵",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuwe sollicitatie binnengekomen voor de DJ positie!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoonnummer", value: formData.phone },
-                        { name: "DJ Ervaring", value: formData.experience },
-                        { name: "Apparatuur", value: formData.equipment },
-                        { name: "Muziekstijl", value: formData.music },
-                        { name: "Mixing Technieken", value: formData.mixing },
-                        { name: "Geluidstechniek", value: formData.sound },
-                        { name: "Beschikbaarheid", value: formData.availability }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            inline: false
+                        },
+                        { 
+                            name: "🎧 DJ Ervaring", 
+                            value: formData.experience,
+                            inline: false
+                        },
+                        { 
+                            name: "🎛️ Apparatuur", 
+                            value: formData.equipment,
+                            inline: false
+                        },
+                        { 
+                            name: "🎼 Muziekstijl", 
+                            value: formData.music,
+                            inline: false
+                        },
+                        { 
+                            name: "🎚️ Mixing Technieken", 
+                            value: formData.mixing,
+                            inline: false
+                        },
+                        { 
+                            name: "🔊 Geluidstechniek", 
+                            value: formData.sound,
+                            inline: false
+                        },
+                        { 
+                            name: "📅 Beschikbaarheid", 
+                            value: formData.availability,
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - DJ Sollicitaties",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };

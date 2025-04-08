@@ -245,16 +245,40 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Sollicitatie - Bartender",
+                    title: "🍸 NIEUWE BARTENDER SOLICITATIE 🍸",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuwe sollicitatie binnengekomen voor de Bartender positie!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Horeca Ervaring", value: formData.experience },
-                        { name: "Cocktail Kennis", value: formData.cocktails },
-                        { name: "Werk Snelheid", value: formData.speed },
-                        { name: "Beschikbaarheid", value: formData.availability }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            inline: false
+                        },
+                        { 
+                            name: "🍻 Horeca Ervaring", 
+                            value: formData.experience,
+                            inline: false
+                        },
+                        { 
+                            name: "🍹 Cocktail Kennis", 
+                            value: formData.cocktails,
+                            inline: false
+                        },
+                        { 
+                            name: "⚡ Werk Snelheid", 
+                            value: formData.speed,
+                            inline: false
+                        },
+                        { 
+                            name: "📅 Beschikbaarheid", 
+                            value: formData.availability,
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - Bartender Sollicitaties",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };

@@ -248,16 +248,40 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Sollicitatie - Security",
+                    title: "🛡️ NIEUWE SECURITY SOLICITATIE 🛡️",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuwe sollicitatie binnengekomen voor de Security positie!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Beveiligings Ervaring", value: formData.experience },
-                        { name: "Certificaten", value: formData.certificates },
-                        { name: "Conflictbeheersing", value: formData.conflict },
-                        { name: "Beschikbaarheid", value: formData.availability }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            inline: false
+                        },
+                        { 
+                            name: "🛡️ Security Ervaring", 
+                            value: formData.experience,
+                            inline: false
+                        },
+                        { 
+                            name: "📜 Certificaten", 
+                            value: formData.certificates,
+                            inline: false
+                        },
+                        { 
+                            name: "🤝 Conflictbeheersing", 
+                            value: formData.conflict,
+                            inline: false
+                        },
+                        { 
+                            name: "📅 Beschikbaarheid", 
+                            value: formData.availability,
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - Security Sollicitaties",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };
