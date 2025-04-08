@@ -170,16 +170,37 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Reservering",
+                    title: "📅 NIEUWE RESERVERING 📅",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuwe reservering binnengekomen!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoon", value: formData.phone },
-                        { name: "Datum", value: formData.date },
-                        { name: "Tijd", value: formData.time },
-                        { name: "Aantal gasten", value: formData.guests },
-                        { name: "Speciale wensen", value: formData.message || "Geen" }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: "```\n" + 
+                                  `Naam: ${formData.name}\n` +
+                                  `Telefoon: ${formData.phone}\n` +
+                                  "```",
+                            inline: false
+                        },
+                        { 
+                            name: "📅 Reservering Details", 
+                            value: "```\n" + 
+                                  `Datum: ${formData.date}\n` +
+                                  `Tijd: ${formData.time}\n` +
+                                  `Aantal Personen: ${formData.guests}\n` +
+                                  "```",
+                            inline: false
+                        },
+                        { 
+                            name: "💬 Speciale Wensen", 
+                            value: "```\n" + formData.message + "\n```",
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - Reserveringen",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };

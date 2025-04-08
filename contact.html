@@ -190,14 +190,33 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuw Contact Formulier",
+                    title: "📧 NIEUW CONTACTBERICHT 📧",
                     color: 0xFF6B6B,
+                    description: "**Er is een nieuw contactbericht binnengekomen!**",
                     fields: [
-                        { name: "Naam", value: formData.name },
-                        { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Onderwerp", value: formData.subject },
-                        { name: "Bericht", value: formData.message }
+                        { 
+                            name: "👤 Persoonlijke Gegevens", 
+                            value: "```\n" + 
+                                  `Naam: ${formData.name}\n` +
+                                  `Telefoon: ${formData.phone}\n` +
+                                  "```",
+                            inline: false
+                        },
+                        { 
+                            name: "📝 Onderwerp", 
+                            value: "```\n" + formData.subject + "\n```",
+                            inline: false
+                        },
+                        { 
+                            name: "💬 Bericht", 
+                            value: "```\n" + formData.message + "\n```",
+                            inline: false
+                        }
                     ],
+                    footer: {
+                        text: "Vanilla Unicorn - Contact",
+                        icon_url: "https://i.imgur.com/your-logo-url.png"
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };
