@@ -8,59 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="components/styles.css">
     <style>
-        .glitter-bg {
-            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            animation: sparkle 2s infinite;
-        }
-        @keyframes sparkle {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0); opacity: 0; }
-        }
-        .glitter-text {
-            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: glitter 2s infinite;
-        }
-        @keyframes glitter {
-            0% { filter: brightness(1); }
-            50% { filter: brightness(1.5); }
-            100% { filter: brightness(1); }
-        }
-        .hover-glow {
-            transition: all 0.3s ease;
-        }
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-            transform: scale(1.05);
-        }
-        .rule-item {
-            transition: all 0.3s ease;
-        }
-        .rule-item:hover {
-            transform: translateX(5px);
-            color: #ff6b6b;
-        }
+        .glitter-bg {background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb); background-size: 400% 400%; animation: gradient 15s ease infinite;}
+        @keyframes gradient {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
+        .sparkle {position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; animation: sparkle 2s infinite;}
+        @keyframes sparkle {0% {transform: scale(0); opacity: 0;} 50% {transform: scale(1); opacity: 1;} 100% {transform: scale(0); opacity: 0;}}
+        .glitter-text {background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb); -webkit-background-clip: text; background-clip: text; color: transparent; animation: glitter 2s infinite;}
+        @keyframes glitter {0% {filter: brightness(1);} 50% {filter: brightness(1.5);} 100% {filter: brightness(1);}}
+        .hover-glow {transition: all 0.3s ease;}
+        .hover-glow:hover {text-shadow: 0 0 10px rgba(255, 107, 107, 0.5); transform: scale(1.05);}
+        .rule-item {transition: all 0.3s ease;}
+        .rule-item:hover {transform: translateX(10px);}
+        .rule-icon {transition: all 0.3s ease;}
+        .rule-item:hover .rule-icon {transform: scale(1.2); color: #ff1493;}
     </style>
 </head>
 <body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
-    <!-- Navigation -->
     <nav class="fixed w-full bg-black/90 backdrop-blur-lg z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
@@ -78,83 +40,73 @@
                         </div>
                     </div>
                 </div>
-                <button class="md:hidden text-pink-500 hover:text-pink-400 transition">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                <button class="md:hidden text-pink-500 hover:text-pink-400 transition"><i class="fas fa-bars text-2xl"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+    <section class="pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
         <div class="absolute inset-0 glitter-bg opacity-10"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
             <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Huisregels</h1>
-            <p class="text-2xl mb-12 text-gray-300">Voor een veilige en plezierige ervaring</p>
+            <p class="text-2xl mb-12 text-gray-300">Lees onze regels voor een veilige en plezierige ervaring</p>
         </div>
     </section>
 
-    <!-- Rules Section -->
     <section class="py-20 relative overflow-hidden">
         <div class="absolute inset-0 glitter-bg opacity-5"></div>
         <div class="container mx-auto px-4 relative">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8 mb-8">
-                    <h2 class="text-3xl font-bold mb-6 glitter-text">Algemene Regels</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
+                    <h2 class="text-2xl font-bold mb-6 glitter-text">Algemene Regels</h2>
                     <ul class="space-y-4">
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
-                            <span>Respecteer alle medewerkers en gasten</span>
+                            <i class="fas fa-ban rule-icon mr-4 text-pink-500"></i>
+                            <span>Geen drugs of illegaal gedrag</span>
                         </li>
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
-                            <span>Geen wapens of drugs toegestaan</span>
+                            <i class="fas fa-user-shield rule-icon mr-4 text-pink-500"></i>
+                            <span>Respecteer personeel en gasten</span>
                         </li>
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
-                            <span>Minimale leeftijd: 18 jaar</span>
-                        </li>
-                        <li class="rule-item flex items-center">
-                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
-                            <span>Geldig ID verplicht</span>
+                            <i class="fas fa-camera rule-icon mr-4 text-pink-500"></i>
+                            <span>Geen foto's zonder toestemming</span>
                         </li>
                     </ul>
                 </div>
-
-                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8 mb-8">
-                    <h2 class="text-3xl font-bold mb-6 glitter-text">VIP Regels</h2>
+                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
+                    <h2 class="text-2xl font-bold mb-6 glitter-text">VIP Regels</h2>
                     <ul class="space-y-4">
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
+                            <i class="fas fa-clock rule-icon mr-4 text-pink-500"></i>
                             <span>Reservering minimaal 24 uur van tevoren</span>
                         </li>
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
-                            <span>Minimum besteding van €500 per persoon</span>
+                            <i class="fas fa-users rule-icon mr-4 text-pink-500"></i>
+                            <span>Minimaal 4 personen per reservering</span>
                         </li>
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
-                            <span>Strikte kledingvoorschriften</span>
+                            <i class="fas fa-glass-martini-alt rule-icon mr-4 text-pink-500"></i>
+                            <span>Minimum besteding van €500 per groep</span>
                         </li>
                     </ul>
                 </div>
-
-                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
-                    <h2 class="text-3xl font-bold mb-6 glitter-text">Gedragsregels</h2>
+                <div class="bg-black/90 backdrop-blur-lg p-8 rounded-lg border border-pink-500/20">
+                    <h2 class="text-2xl font-bold mb-6 glitter-text">Gedragsregels</h2>
                     <ul class="space-y-4">
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
-                            <span>Geen ongewenst gedrag of aanrakingen</span>
+                            <i class="fas fa-tshirt rule-icon mr-4 text-pink-500"></i>
+                            <span>Strikte kledingvoorschriften</span>
                         </li>
                         <li class="rule-item flex items-center">
-                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
+                            <i class="fas fa-volume-mute rule-icon mr-4 text-pink-500"></i>
+                            <span>Geen luidruchtig gedrag</span>
+                        </li>
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-handshake rule-icon mr-4 text-pink-500"></i>
                             <span>Respecteer de privacy van anderen</span>
-                        </li>
-                        <li class="rule-item flex items-center">
-                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
-                            <span>Geen fotografie zonder toestemming</span>
                         </li>
                     </ul>
                 </div>
@@ -162,19 +114,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-12 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
-                    <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
-                </a>
-                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
-                    <i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i>
-                </a>
-                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
-                    <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
-                </a>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="transform hover:scale-110 transition duration-300"><i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i></a>
+                <a href="#" class="transform hover:scale-110 transition duration-300"><i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i></a>
+                <a href="#" class="transform hover:scale-110 transition duration-300"><i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i></a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
         </div>
