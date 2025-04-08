@@ -265,37 +265,40 @@
                     fields: [
                         { 
                             name: "👤 Persoonlijke Gegevens", 
-                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            value: "```\n" + 
+                                  `Naam: ${formData.name}\n` +
+                                  `Telefoon: ${formData.phone}\n` +
+                                  "```",
                             inline: false
                         },
                         { 
                             name: "🎧 DJ Ervaring", 
-                            value: formData.experience,
+                            value: "```\n" + formData.experience + "\n```",
                             inline: false
                         },
                         { 
                             name: "🎛️ Apparatuur", 
-                            value: formData.equipment,
+                            value: "```\n" + formData.equipment + "\n```",
                             inline: false
                         },
                         { 
                             name: "🎼 Muziekstijl", 
-                            value: formData.music,
+                            value: "```\n" + formData.music + "\n```",
                             inline: false
                         },
                         { 
                             name: "🎚️ Mixing Technieken", 
-                            value: formData.mixing,
+                            value: "```\n" + formData.mixing + "\n```",
                             inline: false
                         },
                         { 
                             name: "🔊 Geluidstechniek", 
-                            value: formData.sound,
+                            value: "```\n" + formData.sound + "\n```",
                             inline: false
                         },
                         { 
                             name: "📅 Beschikbaarheid", 
-                            value: formData.availability,
+                            value: "```\n" + formData.availability + "\n```",
                             inline: false
                         }
                     ],

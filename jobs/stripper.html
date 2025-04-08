@@ -243,27 +243,30 @@
                     fields: [
                         { 
                             name: "👤 Persoonlijke Gegevens", 
-                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            value: "```\n" + 
+                                  `Naam: ${formData.name}\n` +
+                                  `Telefoon: ${formData.phone}\n` +
+                                  "```",
                             inline: false
                         },
                         { 
                             name: "💃 Dans Ervaring", 
-                            value: formData.experience,
+                            value: "```\n" + formData.experience + "\n```",
                             inline: false
                         },
                         { 
                             name: "🎭 Dansstijl", 
-                            value: formData.style,
+                            value: "```\n" + formData.style + "\n```",
                             inline: false
                         },
                         { 
                             name: "🎪 Podium Ervaring", 
-                            value: formData.performance,
+                            value: "```\n" + formData.performance + "\n```",
                             inline: false
                         },
                         { 
                             name: "📅 Beschikbaarheid", 
-                            value: formData.availability,
+                            value: "```\n" + formData.availability + "\n```",
                             inline: false
                         }
                     ],

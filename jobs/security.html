@@ -254,27 +254,30 @@
                     fields: [
                         { 
                             name: "👤 Persoonlijke Gegevens", 
-                            value: `**Naam:** ${formData.name}\n**Telefoonnummer:** ${formData.phone}`,
+                            value: "```\n" + 
+                                  `Naam: ${formData.name}\n` +
+                                  `Telefoon: ${formData.phone}\n` +
+                                  "```",
                             inline: false
                         },
                         { 
                             name: "🛡️ Security Ervaring", 
-                            value: formData.experience,
+                            value: "```\n" + formData.experience + "\n```",
                             inline: false
                         },
                         { 
                             name: "📜 Certificaten", 
-                            value: formData.certificates,
+                            value: "```\n" + formData.certificates + "\n```",
                             inline: false
                         },
                         { 
                             name: "🤝 Conflictbeheersing", 
-                            value: formData.conflict,
+                            value: "```\n" + formData.conflict + "\n```",
                             inline: false
                         },
                         { 
                             name: "📅 Beschikbaarheid", 
-                            value: formData.availability,
+                            value: "```\n" + formData.availability + "\n```",
                             inline: false
                         }
                     ],
