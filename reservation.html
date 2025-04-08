@@ -8,54 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="components/styles.css">
     <style>
-        .glitter-bg {
-            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            animation: sparkle 2s infinite;
-        }
-        @keyframes sparkle {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0); opacity: 0; }
-        }
         .glitter-text {
             background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: glitter 2s infinite;
-        }
-        @keyframes glitter {
-            0% { filter: brightness(1); }
-            50% { filter: brightness(1.5); }
-            100% { filter: brightness(1); }
-        }
-        .hover-glow {
-            transition: all 0.3s ease;
-        }
-        .hover-glow:hover {
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-            transform: scale(1.05);
-        }
-        .reservation-card {
-            transition: all 0.3s ease;
-        }
-        .reservation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
         }
     </style>
 </head>
@@ -66,11 +23,11 @@
             <div class="flex justify-between items-center">
                 <a href="index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
-                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
-                    <a href="rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
                     <div class="dropdown relative">
-                        <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
+                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
                         <div class="dropdown-content">
                             <a href="contact.html">Contact</a>
                             <a href="work.html">Werk Bij Ons</a>
@@ -87,21 +44,17 @@
 
     <!-- Hero Section -->
     <section class="pt-32 pb-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
-        <div class="absolute inset-0 glitter-bg opacity-10"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Reserveren</h1>
+            <h1 class="text-7xl font-bold mb-6 glitter-text">Reserveren</h1>
             <p class="text-2xl mb-12 text-gray-300">Boek uw exclusieve VIP ervaring</p>
         </div>
     </section>
 
     <!-- Reservation Section -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 glitter-bg opacity-5"></div>
-        <div class="container mx-auto px-4 relative">
+    <section class="py-20">
+        <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto">
-                <div class="reservation-card bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
                     <h2 class="text-3xl font-bold mb-6 glitter-text">Maak een reservering</h2>
                     <form id="reservationForm" class="space-y-6">
                         <div class="mb-6">
@@ -114,21 +67,21 @@
                         </div>
                         <div class="form-group">
                             <label for="date" class="block mb-2 text-pink-500 font-medium">Datum</label>
-                            <input type="date" id="date" name="date" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
+                            <input type="date" id="date" name="date" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="form-group">
                             <label for="time" class="block mb-2 text-pink-500 font-medium">Tijd</label>
-                            <input type="time" id="time" name="time" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
+                            <input type="time" id="time" name="time" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="form-group">
                             <label for="guests" class="block mb-2 text-pink-500 font-medium">Aantal gasten</label>
-                            <input type="number" id="guests" name="guests" min="1" max="20" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
+                            <input type="number" id="guests" name="guests" min="1" max="20" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="form-group">
                             <label for="message" class="block mb-2 text-pink-500 font-medium">Speciale wensen</label>
-                            <textarea id="message" name="message" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20"></textarea>
+                            <textarea id="message" name="message" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300">
                             Reserveren
                         </button>
                     </form>
@@ -159,7 +112,7 @@
             const time = document.getElementById('time').value;
             const dateTime = new Date(`${date}T${time}`);
             const now = new Date();
-            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours from now
+            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
             if (dateTime < minDateTime) {
                 alert('Reserveringen moeten minimaal 24 uur van tevoren worden gemaakt.');
@@ -173,13 +126,11 @@
             const dateInput = document.getElementById('date');
             const timeInput = document.getElementById('time');
             const now = new Date();
-            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours from now
+            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
-            // Set minimum date
             const minDate = minDateTime.toISOString().split('T')[0];
             dateInput.min = minDate;
 
-            // If today is selected, set minimum time
             if (dateInput.value === minDate) {
                 const minTime = minDateTime.toTimeString().slice(0, 5);
                 timeInput.min = minTime;
@@ -188,7 +139,6 @@
             }
         }
 
-        // Add event listeners
         document.getElementById('date').addEventListener('change', setMinDateTime);
         document.getElementById('time').addEventListener('change', validateDateTime);
 
@@ -267,7 +217,6 @@
             }
         });
 
-        // Initialize minimum date and time on page load
         setMinDateTime();
     </script>
 </body>
