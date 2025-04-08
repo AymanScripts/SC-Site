@@ -120,23 +120,27 @@
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Ervaring in horeca of bartending</span>
+                            <span>Minimaal 2 jaar ervaring in horeca</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Kennis van cocktails en drankjes</span>
+                            <span>Uitgebreide kennis van cocktails en drankjes</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Professionele uitstraling</span>
+                            <span>Professionele uitstraling en presentatie</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Flexibele beschikbaarheid</span>
+                            <span>Flexibele beschikbaarheid (avonden en weekenden)</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Teamplayer mentaliteit</span>
+                            <span>Teamplayer met goede communicatieve vaardigheden</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Kennis van veilig alcohol schenken</span>
                         </li>
                     </ul>
                 </div>
@@ -187,16 +191,20 @@
                             <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="mb-6">
-                            <label for="experience" class="block text-gray-300 mb-2">Ervaring</label>
-                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required></textarea>
+                            <label for="experience" class="block text-gray-300 mb-2">Horeca Ervaring</label>
+                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je ervaring in de horeca, inclusief vorige werkgevers en functies"></textarea>
                         </div>
                         <div class="mb-6">
-                            <label for="cocktails" class="block text-gray-300 mb-2">Cocktail Ervaring</label>
-                            <textarea id="cocktails" name="cocktails" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je ervaring met cocktails en speciale drankjes"></textarea>
+                            <label for="cocktails" class="block text-gray-300 mb-2">Cocktail Kennis</label>
+                            <textarea id="cocktails" name="cocktails" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Welke cocktails ken je? Heb je ervaring met het maken van speciale drankjes?"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="speed" class="block text-gray-300 mb-2">Werk Snelheid</label>
+                            <textarea id="speed" name="speed" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Hoe snel kun je werken onder druk? Beschrijf je ervaring met drukke avonden"></textarea>
                         </div>
                         <div class="mb-6">
                             <label for="availability" class="block text-gray-300 mb-2">Beschikbaarheid</label>
-                            <textarea id="availability" name="availability" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je beschikbaarheid en voorkeuren"></textarea>
+                            <textarea id="availability" name="availability" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je beschikbaarheid voor avonden en weekenden"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
                             Verstuur Sollicitatie
@@ -231,6 +239,7 @@
                 phone: document.getElementById('phone').value,
                 experience: document.getElementById('experience').value,
                 cocktails: document.getElementById('cocktails').value,
+                speed: document.getElementById('speed').value,
                 availability: document.getElementById('availability').value
             };
 
@@ -241,8 +250,9 @@
                     fields: [
                         { name: "Naam", value: formData.name },
                         { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience },
-                        { name: "Cocktail Ervaring", value: formData.cocktails },
+                        { name: "Horeca Ervaring", value: formData.experience },
+                        { name: "Cocktail Kennis", value: formData.cocktails },
+                        { name: "Werk Snelheid", value: formData.speed },
                         { name: "Beschikbaarheid", value: formData.availability }
                     ],
                     timestamp: new Date().toISOString()
