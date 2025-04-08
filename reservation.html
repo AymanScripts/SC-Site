@@ -118,9 +118,7 @@
                         </div>
                         <div class="form-group">
                             <label for="time" class="block mb-2 text-pink-500 font-medium">Tijd</label>
-                            <select id="time" name="time" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
-                                <option value="">Selecteer een tijd</option>
-                            </select>
+                            <input type="time" id="time" name="time" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
                         <div class="form-group">
                             <label for="guests" class="block mb-2 text-pink-500 font-medium">Aantal gasten</label>
@@ -158,102 +156,52 @@
     </footer>
 
     <script>
-        // Initialize reservations in localStorage if not exists
-        if (!localStorage.getItem('reservations')) {
-            localStorage.setItem('reservations', JSON.stringify([]));
-        }
-
-        // Function to check if a time slot is available
-        function isTimeSlotAvailable(date, time, guests) {
-            const reservations = JSON.parse(localStorage.getItem('reservations'));
-            const requestedDateTime = new Date(`${date}T${time}`);
-            const requestedEndTime = new Date(requestedDateTime.getTime() + 2 * 60 * 60 * 1000); // 2 hours duration
-
-            // Check if there's any overlap with existing reservations
-            return !reservations.some(reservation => {
-                const resDateTime = new Date(`${reservation.date}T${reservation.time}`);
-                const resEndTime = new Date(resDateTime.getTime() + 2 * 60 * 60 * 1000);
-
-                // Check for time overlap
-                const timeOverlap = (requestedDateTime >= resDateTime && requestedDateTime < resEndTime) ||
-                                  (requestedEndTime > resDateTime && requestedEndTime <= resEndTime) ||
-                                  (requestedDateTime <= resDateTime && requestedEndTime >= resEndTime);
-
-                // Check if total guests would exceed capacity (assuming max 20 guests)
-                if (timeOverlap) {
-                    const totalGuests = reservations
-                        .filter(r => r.date === date && r.time === time)
-                        .reduce((sum, r) => sum + parseInt(r.guests), 0);
-                    return (totalGuests + parseInt(guests)) > 20;
-                }
-                return false;
-            });
-        }
-
-        // Function to update available time slots
-        function updateAvailableTimeSlots() {
-            const date = document.getElementById('date').value;
-            const timeSelect = document.getElementById('time');
-            const currentTime = new Date();
-            const selectedDate = new Date(date);
-            
-            // Clear existing options
-            timeSelect.innerHTML = '';
-            
-            // Only allow future dates
-            if (selectedDate < currentTime.setHours(0,0,0,0)) {
-                timeSelect.disabled = true;
-                timeSelect.innerHTML = '<option value="">Selecteer eerst een geldige datum</option>';
-                return;
-            }
-
-            // Generate time slots from 20:00 to 02:00
-            for (let hour = 20; hour <= 24; hour++) {
-                const time = `${hour.toString().padStart(2, '0')}:00`;
-                if (isTimeSlotAvailable(date, time, 1)) {
-                    const option = document.createElement('option');
-                    option.value = time;
-                    option.textContent = time;
-                    timeSelect.appendChild(option);
-                }
-            }
-            for (let hour = 0; hour <= 2; hour++) {
-                const time = `${hour.toString().padStart(2, '0')}:00`;
-                if (isTimeSlotAvailable(date, time, 1)) {
-                    const option = document.createElement('option');
-                    option.value = time;
-                    option.textContent = time;
-                    timeSelect.appendChild(option);
-                }
-            }
-
-            if (timeSelect.options.length === 0) {
-                timeSelect.innerHTML = '<option value="">Geen beschikbare tijden</option>';
-                timeSelect.disabled = true;
-            } else {
-                timeSelect.disabled = false;
-            }
-        }
-
-        // Add event listener for date changes
-        document.getElementById('date').addEventListener('change', updateAvailableTimeSlots);
-
-        // Add event listener for guest count changes
-        document.getElementById('guests').addEventListener('change', function() {
+        // Function to validate date and time
+        function validateDateTime() {
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
-            if (date && time) {
-                if (!isTimeSlotAvailable(date, time, this.value)) {
-                    alert('Deze tijd is niet meer beschikbaar voor het geselecteerde aantal gasten. Kies een andere tijd.');
-                    this.value = 1;
-                    updateAvailableTimeSlots();
-                }
+            const dateTime = new Date(`${date}T${time}`);
+            const now = new Date();
+            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours from now
+
+            if (dateTime < minDateTime) {
+                alert('Reserveringen moeten minimaal 24 uur van tevoren worden gemaakt.');
+                return false;
             }
-        });
+            return true;
+        }
+
+        // Function to set minimum date and time
+        function setMinDateTime() {
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+            const now = new Date();
+            const minDateTime = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours from now
+
+            // Set minimum date
+            const minDate = minDateTime.toISOString().split('T')[0];
+            dateInput.min = minDate;
+
+            // If today is selected, set minimum time
+            if (dateInput.value === minDate) {
+                const minTime = minDateTime.toTimeString().slice(0, 5);
+                timeInput.min = minTime;
+            } else {
+                timeInput.min = '00:00';
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('date').addEventListener('change', setMinDateTime);
+        document.getElementById('time').addEventListener('change', validateDateTime);
 
         document.getElementById('reservationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            if (!validateDateTime()) {
+                return;
+            }
+
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
@@ -262,18 +210,6 @@
                 guests: document.getElementById('guests').value,
                 message: document.getElementById('message').value
             };
-
-            // Check if time slot is still available
-            if (!isTimeSlotAvailable(formData.date, formData.time, formData.guests)) {
-                alert('Deze tijd is niet meer beschikbaar. Kies een andere tijd.');
-                updateAvailableTimeSlots();
-                return;
-            }
-
-            // Add reservation to localStorage
-            const reservations = JSON.parse(localStorage.getItem('reservations'));
-            reservations.push(formData);
-            localStorage.setItem('reservations', JSON.stringify(reservations));
 
             const message = {
                 embeds: [{
@@ -324,7 +260,7 @@
                 if (response.ok) {
                     alert('Reservering succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
                     document.getElementById('reservationForm').reset();
-                    updateAvailableTimeSlots();
+                    setMinDateTime();
                 } else {
                     throw new Error('Er is een fout opgetreden bij het verzenden van de reservering.');
                 }
@@ -334,8 +270,8 @@
             }
         });
 
-        // Initialize time slots on page load
-        updateAvailableTimeSlots();
+        // Initialize minimum date and time on page load
+        setMinDateTime();
     </script>
 </body>
 </html> 
