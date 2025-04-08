@@ -120,23 +120,31 @@
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Ervaring in DJ'en of muziekproductie</span>
+                            <span>Minimaal 2 jaar ervaring als DJ</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Eigen apparatuur</span>
+                            <span>Uitgebreide kennis van muziekgenres</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Uitgebreide muziekbibliotheek</span>
+                            <span>Professionele uitstraling en presentatie</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Flexibele beschikbaarheid</span>
+                            <span>Flexibele beschikbaarheid (avonden en weekenden)</span>
                         </li>
                         <li class="requirement-item flex items-center">
                             <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
-                            <span>Teamplayer mentaliteit</span>
+                            <span>Kennis van professionele DJ apparatuur</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Ervaring met live mixing en beatmatching</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check requirement-icon mr-4 text-pink-500"></i>
+                            <span>Kennis van geluidstechniek en PA systemen</span>
                         </li>
                     </ul>
                 </div>
@@ -187,16 +195,28 @@
                             <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required>
                         </div>
                         <div class="mb-6">
-                            <label for="experience" class="block text-gray-300 mb-2">Ervaring</label>
-                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required></textarea>
+                            <label for="experience" class="block text-gray-300 mb-2">DJ Ervaring</label>
+                            <textarea id="experience" name="experience" rows="4" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je ervaring als DJ, inclusief vorige werkgevers en evenementen"></textarea>
                         </div>
                         <div class="mb-6">
                             <label for="equipment" class="block text-gray-300 mb-2">Apparatuur</label>
-                            <textarea id="equipment" name="equipment" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf welke apparatuur je gebruikt"></textarea>
+                            <textarea id="equipment" name="equipment" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Welke DJ apparatuur gebruik je? Heb je ervaring met verschillende merken?"></textarea>
                         </div>
                         <div class="mb-6">
                             <label for="music" class="block text-gray-300 mb-2">Muziekstijl</label>
-                            <textarea id="music" name="music" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je muziekstijl en genres"></textarea>
+                            <textarea id="music" name="music" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Welke muziekstijlen draai je? Hoe pas je je muziek aan op het publiek?"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="mixing" class="block text-gray-300 mb-2">Mixing Technieken</label>
+                            <textarea id="mixing" name="mixing" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je mixing technieken en hoe je een set opbouwt"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="sound" class="block text-gray-300 mb-2">Geluidstechniek</label>
+                            <textarea id="sound" name="sound" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Wat is je kennis van geluidstechniek en PA systemen?"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label for="availability" class="block text-gray-300 mb-2">Beschikbaarheid</label>
+                            <textarea id="availability" name="availability" rows="2" class="w-full px-4 py-2 bg-black/50 border border-pink-500/20 rounded-lg text-white focus:outline-none focus:border-pink-500" required placeholder="Beschrijf je beschikbaarheid voor avonden en weekenden"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
                             Verstuur Sollicitatie
@@ -231,7 +251,10 @@
                 phone: document.getElementById('phone').value,
                 experience: document.getElementById('experience').value,
                 equipment: document.getElementById('equipment').value,
-                music: document.getElementById('music').value
+                music: document.getElementById('music').value,
+                mixing: document.getElementById('mixing').value,
+                sound: document.getElementById('sound').value,
+                availability: document.getElementById('availability').value
             };
 
             const message = {
@@ -241,9 +264,12 @@
                     fields: [
                         { name: "Naam", value: formData.name },
                         { name: "Telefoonnummer", value: formData.phone },
-                        { name: "Ervaring", value: formData.experience },
+                        { name: "DJ Ervaring", value: formData.experience },
                         { name: "Apparatuur", value: formData.equipment },
-                        { name: "Muziekstijl", value: formData.music }
+                        { name: "Muziekstijl", value: formData.music },
+                        { name: "Mixing Technieken", value: formData.mixing },
+                        { name: "Geluidstechniek", value: formData.sound },
+                        { name: "Beschikbaarheid", value: formData.availability }
                     ],
                     timestamp: new Date().toISOString()
                 }]
