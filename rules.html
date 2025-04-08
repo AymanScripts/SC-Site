@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="components/styles.css">
     <style>
         .glitter-bg {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -32,7 +32,7 @@
             100% { transform: scale(0); opacity: 0; }
         }
         .glitter-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -50,38 +50,31 @@
             text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
             transform: scale(1.05);
         }
-        .rule-card {
+        .rule-item {
             transition: all 0.3s ease;
         }
-        .rule-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
-        }
-        .rule-icon {
-            transition: all 0.3s ease;
-        }
-        .rule-card:hover .rule-icon {
-            transform: scale(1.2);
+        .rule-item:hover {
+            transform: translateX(5px);
             color: #ff6b6b;
         }
     </style>
 </head>
-<body class="bg-gradient-to-b from-pink-50 to-white min-h-screen">
+<body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20 backdrop-blur-lg">
+    <nav class="fixed w-full bg-black/90 backdrop-blur-lg z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
+                <a href="index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
                     <div class="dropdown relative">
                         <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
                         <div class="dropdown-content">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="work.html">Werk Bij Ons</a>
+                            <a href="reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -93,13 +86,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
         <div class="absolute inset-0 glitter-bg opacity-10"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
             <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Huisregels</h1>
-            <p class="text-2xl mb-12 text-gray-300">Voor een veilige en plezierige ervaring voor iedereen</p>
+            <p class="text-2xl mb-12 text-gray-300">Voor een veilige en plezierige ervaring</p>
         </div>
     </section>
 
@@ -107,100 +100,61 @@
     <section class="py-20 relative overflow-hidden">
         <div class="absolute inset-0 glitter-bg opacity-5"></div>
         <div class="container mx-auto px-4 relative">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="rule-card bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
-                    <div class="text-pink-500 text-4xl mb-4 rule-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 glitter-text">Gedrag</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Respecteer alle medewerkers en gasten
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Algemene Regels</h2>
+                    <ul class="space-y-4">
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
+                            <span>Respecteer alle medewerkers en gasten</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen ongewenste intimiteiten
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
+                            <span>Geen wapens of drugs toegestaan</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen drugs of wapens
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
+                            <span>Minimale leeftijd: 18 jaar</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen opnames maken zonder toestemming
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-exclamation-circle text-pink-500 mr-3 text-xl"></i>
+                            <span>Geldig ID verplicht</span>
                         </li>
                     </ul>
                 </div>
-                <div class="rule-card bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
-                    <div class="text-pink-500 text-4xl mb-4 rule-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 glitter-text">Kledingvoorschriften</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Nette kleding verplicht
+
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">VIP Regels</h2>
+                    <ul class="space-y-4">
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
+                            <span>Reservering minimaal 24 uur van tevoren</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen sportkleding
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
+                            <span>Minimum besteding van €500 per persoon</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen petten of caps
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen trainingspakken
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-crown text-pink-500 mr-3 text-xl"></i>
+                            <span>Strikte kledingvoorschriften</span>
                         </li>
                     </ul>
                 </div>
-                <div class="rule-card bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
-                    <div class="text-pink-500 text-4xl mb-4 rule-icon">
-                        <i class="fas fa-glass-martini-alt"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 glitter-text">Alcohol & Drankjes</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Minimumleeftijd 18 jaar
+
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Gedragsregels</h2>
+                    <ul class="space-y-4">
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
+                            <span>Geen ongewenst gedrag of aanrakingen</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen eigen drank meenemen
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
+                            <span>Respecteer de privacy van anderen</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen alcohol aan minderjarigen
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Verantwoord alcoholgebruik
-                        </li>
-                    </ul>
-                </div>
-                <div class="rule-card bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 p-8">
-                    <div class="text-pink-500 text-4xl mb-4 rule-icon">
-                        <i class="fas fa-ban"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 glitter-text">Verboden Items</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen wapens of gevaarlijke voorwerpen
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen drugs of illegale substanties
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen professionele camera's
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-pink-500 mr-2"></i>
-                            Geen grote tassen of rugzakken
+                        <li class="rule-item flex items-center">
+                            <i class="fas fa-handshake text-pink-500 mr-3 text-xl"></i>
+                            <span>Geen fotografie zonder toestemming</span>
                         </li>
                     </ul>
                 </div>
@@ -209,7 +163,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-gradient-to-b from-white to-pink-50">
+    <footer class="py-12 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
                 <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">

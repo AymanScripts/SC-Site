@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="components/styles.css">
     <style>
         .glitter-bg {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -32,7 +32,7 @@
             100% { transform: scale(0); opacity: 0; }
         }
         .glitter-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -83,20 +83,20 @@
 </head>
 <body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20 backdrop-blur-lg">
+    <nav class="fixed w-full bg-black/90 backdrop-blur-lg z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
+                <a href="index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
                     <div class="dropdown relative">
                         <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
                         <div class="dropdown-content">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="work.html">Werk Bij Ons</a>
+                            <a href="reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -108,9 +108,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
         <div class="absolute inset-0 glitter-bg opacity-10"></div>
         <div class="container mx-auto px-4 text-center relative z-10">
             <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Galerij</h1>
@@ -123,42 +123,42 @@
         <div class="absolute inset-0 glitter-bg opacity-5"></div>
         <div class="container mx-auto px-4 relative">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/gallery/interior-1.jpg" alt="Vanilla Unicorn Interior" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">Interieur</h3>
                         <p class="text-sm text-white">Exclusieve VIP ruimtes</p>
                     </div>
                 </div>
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/gallery/interior-2.jpg" alt="Vanilla Unicorn Bar" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">Bar</h3>
                         <p class="text-sm text-white">Premium drankjes</p>
                     </div>
                 </div>
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/gallery/entertainment-1.jpg" alt="Vanilla Unicorn Stage" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">Podium</h3>
                         <p class="text-sm text-white">Professionele shows</p>
                     </div>
                 </div>
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/gallery/vip-2.jpg" alt="Vanilla Unicorn VIP" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">VIP Lounge</h3>
                         <p class="text-sm text-white">Privé ruimtes</p>
                     </div>
                 </div>
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/gallery/entertainment-3.jpg" alt="Vanilla Unicorn DJ" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">DJ Booth</h3>
                         <p class="text-sm text-white">Top DJ's</p>
                     </div>
                 </div>
-                <div class="gallery-item bg-black/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200">
+                <div class="gallery-item bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20">
                     <img src="assets/hero-bg.jpg" alt="Vanilla Unicorn Entrance" class="w-full h-64 object-cover rounded-lg">
                     <div class="gallery-overlay">
                         <h3 class="text-xl font-bold glitter-text">Entree</h3>

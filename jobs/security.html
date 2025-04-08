@@ -3,27 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla Unicorn - Security Vacature</title>
+    <title>Vanilla Unicorn - Security</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../components/styles.css">
+    <style>
+        .glitter-bg {
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .glitter-text {
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glitter 2s infinite;
+        }
+        @keyframes glitter {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            transform: scale(1.05);
+        }
+        .requirement-item {
+            transition: all 0.3s ease;
+        }
+        .requirement-item:hover {
+            transform: translateX(5px);
+            color: #ff6b6b;
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-black/60 to-black/60 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-fixed">
+<body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-black/70 backdrop-blur-md z-50 border-b border-pink-500/20">
+    <nav class="fixed w-full bg-black/90 backdrop-blur-lg z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold bg-gradient-to-r from-pink-500 to-pink-600 bg-clip-text text-transparent">Vanilla Unicorn</a>
+                <a href="../index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300">Huisregels</a>
-                    <div class="relative group">
-                        <button class="hover:text-pink-500 transition duration-300">Contact</button>
-                        <div class="absolute hidden group-hover:block bg-black/90 min-w-[200px] rounded-lg shadow-lg border border-pink-500/20">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html" class="block px-4 py-3 hover:bg-pink-500/20 transition duration-300">Reserveren</a>
+                    <a href="../index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="../gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="../rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
+                    <div class="dropdown relative">
+                        <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
+                        <div class="dropdown-content">
+                            <a href="../contact.html">Contact</a>
+                            <a href="../work.html">Werk Bij Ons</a>
+                            <a href="../reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -35,73 +93,107 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('../assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-pink-600 bg-clip-text text-transparent hover:text-shadow-lg hover:shadow-pink-500/50">Security Vacature</h1>
-            <p class="text-2xl mb-12 text-gray-300">Word onderdeel van ons professionele security team</p>
-        </div>
-    </section>
-
-    <!-- Job Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-black/70 backdrop-blur-md rounded-xl p-8 mb-8 border border-pink-500/20">
-                    <h2 class="text-3xl font-bold mb-6">Over de Functie</h2>
-                    <p class="text-gray-300 mb-6">Als security bij Vanilla Unicorn ben je verantwoordelijk voor de veiligheid van onze gasten en medewerkers. Je zorgt voor een veilige en plezierige omgeving voor iedereen.</p>
-                    <h3 class="text-2xl font-bold mb-4">Verantwoordelijkheden</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 mb-6">
-                        <li>Toezicht houden op de veiligheid in en rond de club</li>
-                        <li>Handhaven van de huisregels</li>
-                        <li>Omgaan met lastige situaties en conflicten</li>
-                        <li>Assisteren bij noodsituaties</li>
-                        <li>Samenwerken met het security team</li>
-                    </ul>
-                    <h3 class="text-2xl font-bold mb-4">Eisen</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300">
-                        <li>Ervaring in security of beveiliging</li>
-                        <li>Goede fysieke conditie</li>
-                        <li>Uitstekende communicatieve vaardigheden</li>
-                        <li>Flexibele beschikbaarheid</li>
-                        <li>Minimaal 21 jaar oud</li>
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('../assets/jobs/security.jpg')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
+        <div class="absolute inset-0 glitter-bg opacity-10"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="text-center mb-16">
+                <h1 class="text-6xl font-bold mb-6 glitter-text hover-glow">Security</h1>
+                <p class="text-2xl text-gray-300">Zorg voor een veilige en plezierige avond</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Requirements -->
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Eisen</h2>
+                    <ul class="space-y-4">
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Ervaring in beveiliging</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Geldig beveiligingscertificaat</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Goede communicatieve vaardigheden</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Flexibele beschikbaarheid</span>
+                        </li>
+                        <li class="requirement-item flex items-center">
+                            <i class="fas fa-check text-pink-500 mr-3 text-xl"></i>
+                            <span>Minimaal 18 jaar oud</span>
+                        </li>
                     </ul>
                 </div>
 
-                <form id="securityForm" class="bg-black/70 backdrop-blur-md rounded-xl p-8 border border-pink-500/20">
-                    <h2 class="text-3xl font-bold mb-6">Solliciteer Nu</h2>
+                <!-- Benefits -->
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Voordelen</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-money-bill-wave text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Competitief salaris</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Professionele training</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Dynamische werkomgeving</span>
+                            </div>
+                        </div>
+                        <div class="benefit-card bg-pink-900/50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-glass-cheers text-pink-500 text-2xl mr-3"></i>
+                                <span class="font-medium">Gratis drankjes tijdens diensten</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apply Form -->
+            <div class="max-w-2xl mx-auto mt-12">
+                <form id="securityForm" class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Solliciteer Nu</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="firstName" class="block mb-2">Voornaam</label>
+                        <div class="form-group">
+                            <label for="firstName" class="block mb-2 text-pink-500 font-medium">Voornaam</label>
                             <input type="text" id="firstName" name="firstName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div>
-                            <label for="lastName" class="block mb-2">Achternaam</label>
+                        <div class="form-group">
+                            <label for="lastName" class="block mb-2 text-pink-500 font-medium">Achternaam</label>
                             <input type="text" id="lastName" name="lastName" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div>
-                            <label for="email" class="block mb-2">Email</label>
+                        <div class="form-group">
+                            <label for="email" class="block mb-2 text-pink-500 font-medium">Email</label>
                             <input type="email" id="email" name="email" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div>
-                            <label for="phone" class="block mb-2">Telefoon</label>
+                        <div class="form-group">
+                            <label for="phone" class="block mb-2 text-pink-500 font-medium">Telefoon</label>
                             <input type="tel" id="phone" name="phone" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
-                        <div>
-                            <label for="experience" class="block mb-2">Ervaring</label>
+                        <div class="form-group md:col-span-2">
+                            <label for="experience" class="block mb-2 text-pink-500 font-medium">Ervaring</label>
                             <textarea id="experience" name="experience" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
-                        <div>
-                            <label for="availability" class="block mb-2">Beschikbaarheid</label>
-                            <textarea id="availability" name="availability" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
+                        <div class="form-group md:col-span-2">
+                            <label for="certificates" class="block mb-2 text-pink-500 font-medium">Certificaten</label>
+                            <textarea id="certificates" name="certificates" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
                     </div>
-                    <div class="mt-6">
-                        <label for="motivation" class="block mb-2">Motivatie</label>
-                        <textarea id="motivation" name="motivation" rows="4" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-pink-500/30">
+                    <button type="submit" class="w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
                         Verstuur Sollicitatie
                     </button>
                 </form>
@@ -110,17 +202,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12">
+    <footer class="py-12 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
-                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                    <i class="fab fa-discord text-3xl"></i>
+                <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-discord text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                    <i class="fab fa-instagram text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-instagram text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                    <i class="fab fa-tiktok text-3xl"></i>
+                <a href="#" class="social-icon transform hover:scale-110 transition duration-300">
+                    <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-600"></i>
                 </a>
             </div>
             <p class="text-gray-400">&copy; 2024 Vanilla Unicorn. Alle rechten voorbehouden.</p>
@@ -137,8 +229,7 @@
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 experience: document.getElementById('experience').value,
-                availability: document.getElementById('availability').value,
-                motivation: document.getElementById('motivation').value
+                certificates: document.getElementById('certificates').value
             };
 
             const message = {
@@ -150,15 +241,14 @@
                         { name: "Email", value: formData.email },
                         { name: "Telefoon", value: formData.phone },
                         { name: "Ervaring", value: formData.experience },
-                        { name: "Beschikbaarheid", value: formData.availability },
-                        { name: "Motivatie", value: formData.motivation }
+                        { name: "Certificaten", value: formData.certificates }
                     ],
                     timestamp: new Date().toISOString()
                 }]
             };
 
             try {
-                const response = await fetch('YOUR_SECURITY_WEBHOOK_URL', {
+                const response = await fetch('https://discord.com/api/webhooks/1359095393203257364/mEnNDgz-pvEDaMQz9plwV9Xs2TQHYP_jezeMHM2CjUERonP6IMSpxbE2x8ZAyWI8xyJC', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -179,4 +269,5 @@
         });
     </script>
 </body>
+</html> 
 </html> 

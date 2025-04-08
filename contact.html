@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="components/styles.css">
     <style>
         .glitter-bg {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -32,7 +32,7 @@
             100% { transform: scale(0); opacity: 0; }
         }
         .glitter-text {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3, #ffd8d8);
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -43,24 +43,38 @@
             50% { filter: brightness(1.5); }
             100% { filter: brightness(1); }
         }
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            transform: scale(1.05);
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-b from-pink-50 to-white min-h-screen">
+<body class="bg-gradient-to-b from-black to-gray-900 min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 border-b border-pink-500/20 backdrop-blur-lg">
+    <nav class="fixed w-full bg-black/90 backdrop-blur-lg z-50 border-b border-pink-500/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="https://aymanscripts.github.io/SC-Site/index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
+                <a href="index.html" class="text-3xl font-bold glitter-text">Vanilla Unicorn</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="https://aymanscripts.github.io/SC-Site/index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
-                    <a href="https://aymanscripts.github.io/SC-Site/rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
+                    <a href="index.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Home</a>
+                    <a href="gallery.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Galerij</a>
+                    <a href="rules.html" class="hover:text-pink-500 transition duration-300 hover:scale-110">Huisregels</a>
                     <div class="dropdown relative">
                         <button class="hover:text-pink-500 transition duration-300 hover:scale-110">Contact</button>
                         <div class="dropdown-content">
-                            <a href="https://aymanscripts.github.io/SC-Site/contact.html">Contact</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/work.html">Werk Bij Ons</a>
-                            <a href="https://aymanscripts.github.io/SC-Site/reservation.html">Reserveren</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="work.html">Werk Bij Ons</a>
+                            <a href="reservation.html">Reserveren</a>
                         </div>
                     </div>
                 </div>
@@ -71,54 +85,82 @@
         </div>
     </nav>
 
-    <!-- Contact Section -->
+    <!-- Hero Section -->
     <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/60"></div>
         <div class="absolute inset-0 glitter-bg opacity-10"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-7xl font-bold mb-6 glitter-text hover-glow">Contact</h1>
+            <p class="text-2xl mb-12 text-gray-300">Neem contact met ons op</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 glitter-bg opacity-5"></div>
         <div class="container mx-auto px-4 relative">
-            <h1 class="text-5xl font-bold mb-12 text-center glitter-text">Contact</h1>
-            <div class="max-w-2xl mx-auto">
-                <form id="contactForm" class="card p-8 bg-white/80 backdrop-blur-lg shadow-xl rounded-lg border border-pink-200 hover:shadow-2xl transition duration-300">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                    <h2 class="text-3xl font-bold mb-6 glitter-text">Stuur een bericht</h2>
+                    <form id="contactForm" class="space-y-6">
                         <div class="form-group">
-                            <label for="firstName" class="block mb-2 text-pink-600 font-medium">Voornaam</label>
-                            <input type="text" id="firstName" name="firstName" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required>
+                            <label for="name" class="block mb-2 text-pink-500 font-medium">Naam</label>
+                            <input type="text" id="name" name="name" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
                         <div class="form-group">
-                            <label for="lastName" class="block mb-2 text-pink-600 font-medium">Achternaam</label>
-                            <input type="text" id="lastName" name="lastName" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required>
+                            <label for="email" class="block mb-2 text-pink-500 font-medium">Email</label>
+                            <input type="email" id="email" name="email" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="block mb-2 text-pink-600 font-medium">Email</label>
-                            <input type="email" id="email" name="email" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required>
+                            <label for="subject" class="block mb-2 text-pink-500 font-medium">Onderwerp</label>
+                            <input type="text" id="subject" name="subject" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="block mb-2 text-pink-600 font-medium">Telefoon</label>
-                            <input type="tel" id="phone" name="phone" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required>
+                            <label for="message" class="block mb-2 text-pink-500 font-medium">Bericht</label>
+                            <textarea id="message" name="message" rows="6" class="w-full bg-black/50 border border-pink-500/20 rounded-lg px-4 py-2 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20" required></textarea>
                         </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                            Verstuur Bericht
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="contact-card bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-map-marker-alt text-pink-500 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold glitter-text">Locatie</h3>
+                        </div>
+                        <p class="text-gray-300">Vanilla Unicorn</p>
+                        <p class="text-gray-300">Los Santos</p>
                     </div>
-                    <div class="form-group mt-6">
-                        <label for="subject" class="block mb-2 text-pink-600 font-medium">Onderwerp</label>
-                        <select id="subject" name="subject" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required>
-                            <option value="general">Algemene Vraag</option>
-                            <option value="feedback">Feedback</option>
-                            <option value="complaint">Klacht</option>
-                            <option value="other">Anders</option>
-                        </select>
+
+                    <div class="contact-card bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-clock text-pink-500 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold glitter-text">Openingstijden</h3>
+                        </div>
+                        <p class="text-gray-300">Maandag - Zondag</p>
+                        <p class="text-gray-300">20:00 - 04:00</p>
                     </div>
-                    <div class="form-group mt-6">
-                        <label for="message" class="block mb-2 text-pink-600 font-medium">Bericht</label>
-                        <textarea id="message" name="message" rows="4" class="form-input focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-300" required></textarea>
+
+                    <div class="contact-card bg-black/90 backdrop-blur-lg shadow-xl rounded-lg border border-pink-500/20 p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-envelope text-pink-500 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold glitter-text">Email</h3>
+                        </div>
+                        <p class="text-gray-300">info@vanillaunicorn.com</p>
                     </div>
-                    <button type="submit" class="btn-primary w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                        Verstuur Bericht
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-gradient-to-b from-white to-pink-50">
+    <footer class="py-12 bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8 space-x-6">
                 <a href="https://discord.gg/tcyFSrg7gk" target="_blank" class="social-icon transform hover:scale-110 transition duration-300">
@@ -140,7 +182,7 @@
             e.preventDefault();
             
             const formData = {
-                name: document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value,
+                name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 subject: document.getElementById('subject').value,
                 message: document.getElementById('message').value
@@ -148,7 +190,7 @@
 
             const message = {
                 embeds: [{
-                    title: "Nieuwe Contact Formulier",
+                    title: "Nieuw Contact Formulier",
                     color: 0xFF6B6B,
                     fields: [
                         { name: "Naam", value: formData.name },
